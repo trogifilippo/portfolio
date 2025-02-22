@@ -1267,8 +1267,8 @@ transform: translateY(25px);
 
 #overlay img{
   width: auto;
-  max-width: 60%;
-  max-height: calc((100vh - 90px) / 2);
+  max-width: 80%;
+  max-height: calc((100vh - 300px));
   border-radius: 3px;
 }
 
