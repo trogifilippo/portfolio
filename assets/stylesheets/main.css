@@ -1,0 +1,955 @@
+/**********TIPOGRAFIA************/
+
+.center-text{
+  text-align: center;
+}
+
+.justified{
+  text-align: justify;
+}
+
+.B {
+  font-weight: bold;
+}
+
+.up{
+  text-transform: uppercase;
+}
+
+.caps{
+  text-transform: capitalize;
+}
+
+.underline{
+  text-decoration: underline; 
+}
+
+.white-text{
+  color: white;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.right-text{
+  text-align: right;
+}
+
+.s0{
+  font-size: 1.5rem;
+}
+
+.s1{
+  font-size: 2.3rem;
+}
+
+.s2{
+  font-size: 2.8rem;
+}
+
+.s3{
+  font-size: 3.8rem;
+}
+
+.s4{
+  font-size: 4.3rem;
+}
+
+.o-bg{
+  background-color: #EB8613;
+}
+
+/*********** GENERAL ***********/
+::-webkit-scrollbar{
+  width: 5px;
+  height: 8px;
+  background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000; 
+}
+
+
+* {
+  box-sizing: border-box;
+  
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0px;
+  font-family: 'Teko', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+main {
+  min-height: calc(100vh - 90px);
+  transition: margin-left .5s;
+  padding-bottom: 30px;
+  background: linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+              url(../images/sfondo3.png) no-repeat top  / cover;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul{
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+main section:not(:first-child){
+  padding: 50px 0;
+}
+
+h1{
+  text-shadow: 2px 2px 5px #000000;
+}
+
+/*********** HEADER ***********/
+
+header{
+  font-size: 2.8rem;
+  height: 120px;
+  position: fixed;
+  z-index: 10;
+  background: transparent;
+  top: 0px;
+  display: flex;
+  transition: .5s;
+}
+
+#head-logo {
+  width: 150px;
+}
+
+nav ul{
+  margin: 0;
+}
+
+nav ul li{
+  display: inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0 5px;
+  padding: 5px 5px;
+  font-weight: bold;
+}
+
+nav a:hover, nav .dropbtn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+nav a{
+  padding: 5px 5px;
+  text-transform: capitalize;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.active{
+  background-color: #000000;
+  padding: 5px 5px;
+  border-radius: 3px;
+}
+
+.active a{
+  color: #ffffff;
+}
+
+.btn{
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, .2);
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  color: #000000;
+  padding: 5px 5px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,.5);
+  z-index: 1;
+  padding-bottom: 10px;
+  border-radius: 3px;
+}
+
+.dropbtn.active{
+  background-color: #000000;
+  padding: 5px 5px;
+  border-radius: 3px;
+  color: #ffffff;
+}
+
+/* Links inside the dropdown */
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content.show{
+  display: block;
+}
+
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: rgb(255, 255, 255); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  box-shadow: -3px 0 0 rgba(0, 0, 0, .3); 
+}
+
+/* The navigation menu links */
+.sidenav a:not(:first-child) {
+  padding: 8px 32px 8px 8px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .active{
+  background: #000000;
+  border-radius: 3px;
+  color: white;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+ /************MAIN**************/
+#initial{
+  position: fixed;
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+              url(../images/sfondo3.png) no-repeat top  / cover;
+  z-index: 100;
+  top: 0;
+  animation: fade-out 1.5s linear 1s normal 1,
+             disappear 1s linear 2.5s alternate infinite;
+}
+
+#initial .logo img{
+  max-height: 70vh;
+  width: auto;
+}
+
+.card-border{
+  box-shadow: 3px 3px 5px 5px rgba(255, 255, 255, .3);
+  border-radius: 5px;
+}
+
+.widescreen-post-hero{
+ min-height: calc(100vh - 440px);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.animation-element{
+  opacity: 0;
+  position: relative;
+}
+
+/*animation element sliding left*/
+
+.animation-element.fade-from-left {
+  opacity: 0;
+  -moz-transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+  -moz-transform: translate3d(-100px, 0px, 0px);
+  -webkit-transform: translate3d(-100px, 0px, 0px);
+  -o-transform: translate(-100px, 0px);
+  -ms-transform: translate(-100px, 0px);
+  transform: translate3d(-100px, 0px, 0px);
+}
+
+.animation-element.fade-from-left.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+
+.animation-element.fade-from-bottom {
+  opacity: 0;
+  -moz-transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+  -moz-transform: translate3d(0px, 50px, 0px);
+  -webkit-transform: translate3d(0px, 50px, 0px);
+  -o-transform: translate(0px, 50px);
+  -ms-transform: translate(0px, 50px);
+  transform: translate3d(0px, 50px, 0px);
+}
+
+.animation-element.fade-from-bottom.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.animation-element.fade-from-top {
+  opacity: 0;
+  -moz-transition: all 1.5s linear;
+  -webkit-transition: all 1.5s linear;
+  -o-transition: all 1.5s linear;
+  transition: all 1.5s linear;
+  -moz-transform: translate3d(0px, -100px, 0px);
+  -webkit-transform: translate3d(0px, -100px, 0px);
+  -o-transform: translate(0px, -100px);
+  -ms-transform: translate(0px, -100px);
+  transform: translate3d(0px, -100px, 0px);
+}
+
+.animation-element.fade-from-top.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.animation-element.fade-in.in-view{
+  opacity: 1;
+  transition: 3s;
+}
+
+.animation-element.no-fade.in-view{
+  opacity: 1;
+}
+
+.hero{
+  height: calc(100vh);
+  transition: 1s;
+  padding-top: 120px;
+  margin-top: 0;
+  
+}
+
+.invisible{
+  display: none;
+  opacity: 0;
+}
+
+.hero-reducted{
+  height: auto;
+  min-height: 50vh;
+}
+
+.icon-container{
+  width: 20%;
+  position: absolute;
+}
+
+.images-md{
+  max-width: 50%;
+  max-height: 100%;
+}
+.images-lg{
+  max-width: 75%;
+  max-height: 100%;
+}
+
+.images-sm{
+  max-width: 33.3333333%;
+  max-height: 100%;
+}
+
+.images-xs{
+  width: 25%;
+  max-height: 100%;
+}
+
+.col-flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-padded-10{
+  padding: 0 10px;
+}
+
+.widescreen{
+  min-height: calc(100vh - 90px);
+}
+
+.max-widescreen{
+  height: 100vh;
+  padding-top: 90px;
+}
+
+.half-screen{
+  height: calc(100vh /2);
+}
+
+
+
+.accordion {
+  background-color: rgba(255, 255, 255, .7);
+  color: #000;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  height: 52px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion.active, .accordion:hover  {
+  background-color: rgba(254, 165, 0, .9);
+  color: white;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #000;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion:hover:after{
+  color: white;
+}
+
+.accordion.active:after {
+  content: "\2212";
+  color: white;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.panel.show {
+    display: block !important;
+}
+
+
+.caption{
+  text-align: justify;
+}
+
+.row.top-aligned{
+  align-items: flex-start;
+}
+
+.inverted{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.row-top{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.iubenda-tp-btn{
+  display: none;
+}
+
+.intra{
+  height: 400px;
+}
+
+
+
+.overlaied{
+  cursor: pointer;
+  margin: auto;
+}
+
+#overlay{
+  background: rgba(0, 0, 0, .8);
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 90px);
+  top: 90px;
+  z-index: 100;
+  display: none;
+  text-align: center;
+  padding-top: 15%;
+  color: white;
+  font-size: 2rem;
+}
+
+#overlay img{
+  width: auto;
+  max-width: 80%;
+  max-height: calc((100vh - 90px) / 2);
+  margin: auto;
+}
+
+.img-container img{
+  max-width: 100%;
+}
+
+.img-container{
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0;
+  width: auto;
+}
+
+.label{
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(254, 165, 0, .7);
+  color: #fff;
+  text-align: center;
+  transition:.5s;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.labelText{
+  font-size: 1.5rem;
+}
+
+.showcase{
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**** CONTATTI + FOOTER ****/
+#contatti .card-border{
+  padding: 0 25px 30px 25px;
+  background: rgba(255, 255, 255, .9);
+}
+
+#contatti .card-border{
+  margin: 25px 0;
+}
+
+.contatti ul li{
+  display: block;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.contatti i{
+  margin-right: 10px;
+}
+
+.contatti i{
+  color: #939993;
+}
+
+
+.mail li:hover i{
+  color: #ffffff;
+  background: red;
+  border-radius: 3px;
+}
+
+.phone li:hover i{
+  color: #00ff11;
+  background: #ccede7;
+  border-radius: 3px;
+}
+
+.social-container{
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  background-color: #bababa;
+  margin: 0 5px;
+}
+
+.social, .social .row{
+  justify-content: center;
+}
+
+.facebook:hover{
+background-color: #0072d6;
+}
+
+.instagram:hover{
+background: linear-gradient(#7a34eb, #f018ba, #ffbc36); 
+}
+
+footer .container{
+  box-shadow: 0 -3px rgba(255, 255, 255, .5)
+}
+
+footer a{
+  color: white;
+}
+
+footer{
+  background: linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+              url(../images/sfondo3.png) no-repeat top  / cover;
+  color: white;
+}
+
+ /************OPERATORI**************/
+.hero-operatori{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/drone-bg.png) no-repeat fixed top / cover;
+}
+
+#intra-1{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/drone-bg2.png) no-repeat fixed center / cover;
+  margin-top: 30px;
+}
+
+#intra-2{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/drone-bg3.png) no-repeat fixed center / cover;
+}
+
+#intra-3{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/drone-bg4.png) no-repeat fixed center / cover;
+}
+
+.come-lavoriamo .material-icons, #operatori-SAPR-city .material-icons{
+  font-size: 2em;
+  color: orange;
+}
+
+.servizi-drone .showcase:first-child{
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2)), 
+              url('../images/fotogram.png') no-repeat center / cover;
+}
+
+.servizi-drone .showcase:nth-child(2){
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2)), 
+              url('../images/riprese.png') no-repeat bottom / cover;
+}
+
+.servizi-drone .showcase:nth-child(3){
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2)), 
+              url('../images/isp.png') no-repeat bottom / cover;
+}
+
+.servizi-drone .showcase:nth-child(4){
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2)), 
+              url('../images/termo.png') no-repeat bottom / cover;
+}
+
+.servizi-drone .showcase:nth-child(5){
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2)), 
+              url('../images/agri.png') no-repeat bottom / cover;
+  margin: 0 auto;
+}
+
+#map img{
+  max-height: calc(100vh - 60px);
+}
+
+/************FOTOGRAMMETRIA**************/
+.hero-fotog{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/Aerofoto.jpg) no-repeat fixed top / cover;
+}
+
+#intra-4{
+  background: linear-gradient( rgba(0, 0, 0, .8), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/zephyr3.jpg) no-repeat fixed center / cover;
+  margin-top: 30px;
+}
+
+#intra-5{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(0, 0, 0, .5), rgba(0, 0, 0, .8)),
+              url(../images/densa2.jpg) no-repeat fixed center / cover;
+}
+
+#intra-6{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/anafi-ril.jpeg) no-repeat fixed center / cover;
+}
+
+
+/************BONUS 110**************/
+.hero-superbonus{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/SuperBonus.jpg) no-repeat fixed top / cover;
+}
+
+#intra-7{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/Aerofoto.jpg) no-repeat fixed center / cover;
+  margin-top: 30px;
+}
+
+#intra-8{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/SuperBonus4.jpg) no-repeat fixed center / cover;
+}
+
+#intra-9{
+  background: linear-gradient( rgba(255, 255, 255, .6), rgba(255, 255, 255, .1), rgba(0, 0, 0, .8)),
+              url(../images/SuperBonus2.jpg) no-repeat fixed center / cover;
+}
+
+
+#servizi-bonus .row, #servizi-bonus .inverted{
+  margin-bottom: 100px;
+  
+  padding: 50px 20px;
+  border-radius: 5px;
+}
+
+#servizi-bonus .img-container{
+  width: 100%;
+  margin: auto;
+}
+
+#enac{
+  width: 50%;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+#servizi-bonus .apllications{
+  padding: 50px 20px;
+  background-color: #EB8613;
+  border-radius: 3px;
+}
+
+#servizi-bonus .col-md-7, #locations .container-sm, .blue-bg{
+  padding: 0 20px;
+  background-color: rgba(35, 87, 137, .5);
+  border-radius: 3px;
+}
+
+/**** The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect ****/
+.flip-card {
+  background-color: transparent;
+  max-width: 350px;
+  height: 450px;
+  border-radius: 3%;
+  perspective: 1000px; 
+  margin: 10px auto;
+}
+
+/**** This container is needed to position the front and back side ****/
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000000;
+  }
+
+/**** Do an horizontal flip when you move the mouse over the flip box container ****/
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  box-shadow: none;
+}
+
+/**** Position the front and back side ****/
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  max-width: 350px;
+  height: 400px;
+  backface-visibility: hidden;
+}
+
+/**** Style the front side (fallback if image is missing) ****/
+.flip-card-front {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/**** Style the back side ****/
+.flip-card-back {
+  background-color: #000000;
+  transform: rotateY(180deg);
+  color: #ffffff;
+ }  
+
+.flip-card-front img{
+  height: 260px;
+  width: auto;
+  max-width: 360px;
+}
+
+.flip-card-front div{
+  width:260px;
+  height:260px;
+  border-radius: 100%;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.flip-card li{
+  padding: 0 5px;
+  list-style-type: none;
+  text-align: justify;
+}
+
+@media screen and (min-width: 992px) {
+
+/*********** NAVBAR ***********/
+  #mobile-nav{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+
+
+/************ NAVBAR **********/
+  #pc-nav{
+    display: none;
+  }
+
+  
+}
+
+  @media only screen and (min-width: 768px){
+
+
+
+}
+
+@media only screen and (max-width: 767px) {
+  .label{
+    bottom: 10px;
+
+  }
+
+}
+
+@media only screen and (max-width: 575px) {
+  #hero-fotog.s3{
+    font-size: 2.3rem;
+  }
+
+  #contacts .card-border{
+    width: 100%;
+  }
+
+  .accordion{
+    height: auto;
+  }
+
+  #servizi-bonus .img-container{
+    width: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 576px){
+
+}
+
+@media screen and (max-height: 450px) {
+
+}
+
+@media only screen and (max-width: 350px) {
+
+}
+
+
+@keyframes fade-out{
+  0%{top: 0; opacity: 1;}
+  95%{top: 0; opacity: 0;}
+  100%{top: -100%; opacity: 0;}
+}
+
+@keyframes disappear{
+  0%{top: -300%; opacity: 0;}
+  100%{top: -300%; opacity: 0;}
+}
