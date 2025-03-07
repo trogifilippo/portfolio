@@ -791,6 +791,15 @@ nav{
 transform: translateY(25px);
 }
 
+.left{
+  transform: translateX(-80px);
+}
+
+.right{
+  transform: translateX(80px);
+}
+
+
 #el-logo img{
   width: 80%;
   border-radius: 100%;
