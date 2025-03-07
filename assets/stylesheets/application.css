@@ -791,11 +791,11 @@ nav{
 transform: translateY(25px);
 }
 
-.left{
+.lefted{
   transform: translateX(-80px);
 }
 
-.right{
+.righted{
   transform: translateX(80px);
 }
 
