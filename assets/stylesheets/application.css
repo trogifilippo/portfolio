@@ -724,7 +724,7 @@ nav{
   right: 0;
   background-color: rgb(255, 255, 255); /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px; /* Place content 60px from the top */
+  padding-top: 30px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   box-shadow: -3px 0 0 rgba(0, 0, 0, .3); 
 }

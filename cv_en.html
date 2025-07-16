@@ -30,6 +30,7 @@
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="assets/javascripts/jquery.js"></script>
     <style>
         body {
             font-family: 'Lato', sans-serif;
@@ -38,6 +39,9 @@
         }
         header a{
             font-family: 'Teko', sans-serif!important;
+        }
+        nav img{
+            max-height: 30px;
         }
         .containercv {
             font-size: 100%!important;
@@ -177,7 +181,7 @@
     <header class="container-fluid" id="header">
         <div class="container-sm row">
           <div class="logo-container col" id="head-logo">
-            <a href="/portfolio"><img src="assets/images/logo.png" alt= "Verticaleye_logo"></a> 
+            <a href="/portfolio"><img src="assets/images/logo.png" alt= "Trogi_logo"></a> 
           </div>
           <div class="col" id="navbar">
             <nav class="invisible" id="">
@@ -185,21 +189,24 @@
                 <li><a href="/portfolio">Home</a></li>
                 <li class="active"><a href="cv_en">CV</a></li>
                 <li class=""><a href="portfolio">Portfolio</a></li>
+                <!--<li class=""><a href="cv_fr"><img src="assets/images/fr.png"></a></li>-->
               </ul> 
             </nav>
             <nav id="pc-nav">
               <ul class="nav-list ul-lefted">
-                  <li></li><a href="/portfolio">Home</a></li>
+                  <li><a href="/portfolio">Home</a></li>
                   <li  class="active"><a href="cv_en">CV</a></li>
                   <li class=""><a href="portfolio">Portfolio</a></li>
+                  <!--<li class=""><a href="cv_fr"><img src="assets/images/fr.png"></a></li>-->
               </ul> 
             </nav>
             <nav id="mobile-nav">
               <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="/portfolio" class="active">Home</a>
+                <a href="/portfolio" class="">Home</a>
                 <a class="active" href="cv_en">CV</a>
                 <a href="portfolio">Portfolio</a>
+                <!--<a href="cv_fr"><img src="assets/images/fr.png"></a>-->
               </div>
               <!-- Use any element to open the sidenav -->
               <i onclick="openNav()"class="material-icons" id="menu" style="cursor: pointer;">menu</i>  
@@ -393,3 +400,4 @@
     </div>
 </body>
 </html>
+<script type="text/javascript" src="assets/javascripts/javascript.js"></script>
