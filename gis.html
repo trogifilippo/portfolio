@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+		<link rel="manifest" href="assets/images/favicons/site.webmanifest">
+		<link rel="mask-icon" href="assets/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="assets/images/favicons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="assets/images/favicons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="assets/src/leaflet.css">
+        <link rel="stylesheet" href="assets/src/css/gis.css">
+        <link rel="stylesheet" href="assets/src/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css"/>
+        <link rel="stylesheet" href="assets/src/plugins/L.Control.MousePosition.css">
+        <!--<link rel="stylesheet" href="assets/src/plugins/L.Control.Sidebar.css">-->
+        <link rel="stylesheet" href="assets/src/plugins/Leaflet.PolylineMeasure.css">
+        <link rel="stylesheet" href="assets/src/plugins/easy-button.css">
+        <link rel="stylesheet" href="assets/src/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/src/plugins/leaflet.awesome-markers.css">
+        <link rel="stylesheet" href="assets/src/plugins/MarkerCluster.css">
+        <link rel="stylesheet" href="assets/src/plugins/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="assets/src/plugins/leaflet-legend.css">
+        <link rel="stylesheet" href="assets/src/plugins/leaflet-measure.css">
+        <link rel="stylesheet" href="assets/src/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/src/plugins/leaflet-sidebar.min.css">
+        <link rel="stylesheet" href="assets/src/plugins/Leaflet.GraphicScale.min.css" />
+    
+        <script type="text/javascript" src="assets/javascripts/jqueryjs"></script>
+        <script src="assets/src/leaflet.js"></script>
+        <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.js"></script>
+        <script src="assets/src/js/bootstrap.min.js"></script>
+        <script src="assets/src/plugins/L.Control.MousePosition.js"></script>
+        <!--<script src="assets/src/plugins/L.Control.Sidebar.js"></script>-->
+        <script src="assets/src/plugins/Leaflet.PolylineMeasure.js"></script>
+        <script src="assets/src/plugins/easy-button.js"></script>
+        <script src="assets/src/plugins/leaflet-providers.js"></script>
+        <script src="assets/src/plugins/leaflet.ajax.min.js"></script>
+        <script src="assets/src/plugins/leaflet.awesome-markers.min.js"></script>
+        <script src="assets/src/plugins/leaflet.markercluster.js"></script>
+        <script src="assets/src/plugins/leaflet-legend.js"></script>
+        <script src="assets/src/plugins/leaflet.pattern-src.js"></script>
+        <script src="assets/src/plugins/bundle.js"></script>
+        <script src="assets/src/plugins/leaflet-polygon.fillPattern-canvas.js"></script>			
+        <script src="assets/src/plugins/leaflet-measure.js"></script>
+        <script src="assets/src/plugins/Leaflet.GraphicScale.min.js"></script>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+        <script src="assets/src/plugins/leaflet-sidebar.min.js"></script>
+        <script src="assets/src/jquery-ui.min.js"></script>
+        <script src="assets/src/turf.min.js"></script>
+		<title>Job Locations</title>
+	</head>
+	<body>
+	<main>
+	<section>
+    <div class="map-container">
+        <div id="mapcontainer"></div>
+    </div>
+</section>
+<!-- THE LEGEND -->
+<div id="legend">
+    <div id="lgndsites">
+        <h4 id="btnsites" class="text-center">Sites<i class="bi bi-list"></i></h4>
+        <div id="lgndSitesDetail">
+            <svg height="100" width="100%">
+                <circle class="lgndHama" cx="20" cy="25" r="10" fill="grey" stroke="deeppink" stroke-width="4" fill-opacity="0.5" />
+                <text class="lgndHama" x="50" y="30" style="font-family: sans-serif; font-size: 16px;">Hama</text>
+                <circle class="lgndSites" cx="20" cy="55" r="10" fill="grey" stroke="#800080" stroke-width="4" fill-opacity="0.5" />
+                <text class="lgndSites" x="50" y="60" style="font-family: sans-serif; font-size: 16px;">Early Bronze Age Sites</text>
+            </svg>
+        </div>
+    </div>
+    <div id="lgndstructures">
+        <h4 id="btnstructures" class="text-center">Structures <i class="bi bi-list"></i></h4>
+        <div id="lgndStructuresDetail">
+            
+        </div>
+    </div>
+    <div id="lgnd3dStructures">
+        <h4 id="btn3dStructures" class="text-center">3D<i class="bi bi-list"></i></h4>
+        <div id="lgnd3dStructuresDetail">
+            <svg height="50" width="100%">
+                <line x1="10" y1="10" x2="40" y2="10" style="stroke:red; stroke-width:2;"/>
+                <text x="50" y="15" style="font-family:sans-serif; font-size:16px;">3d Buildings</text>
+            </svg>
+        </div>
+    </div>
+    <div id="lgndheights">
+        <h4 id="btnheights" class="text-center">Elevations<i class="bi bi-list"></i></h4>
+        <div id="lgndHeightsDetail">
+            <svg height="50" width="100%">
+                <defs>
+                    <pattern id="image-pattern" x="0" y="0" width="1" height="1">
+                        <image href="../../assets/src/images/Elevation2.png" x="0" y="0" width="35" height="20" />
+                    </pattern>
+                </defs>
+                <rect x="10" y="15" width="35" height="20" fill="url(#image-pattern)" />
+                <text class="Heigths" x="50" y="30" style="font-family: sans-serif; font-size: 16px;">Elevation</text>
+            </svg>
+        </div>
+    </div>
+    <div id="lgndfinds">
+        <h4 id="btnfindings" class="text-center">Findings<i class="bi bi-list"></i></h4>
+        <div id="lgndFindingsDetail">
+            <svg height="100" width="100%">
+                <circle class="lgndpottery" cx="20" cy="25" r="10" fill="#ac5b31" stroke="black" stroke-width="4" fill-opacity="0.5" />
+                <text class="Pottery lgndpottery" x="50" y="30" style="font-family: sans-serif; font-size: 16px;">Pottery</text>
+                <circle class="lgndobjects" cx="20" cy="55" r="10" fill="#354523" stroke="black" stroke-width="4" fill-opacity="0.5" />
+                <text class="Objects lgndobjects" x="50" y="60" style="font-family: sans-serif; font-size: 16px;">Objects</text>
+                <circle class="lgndlithics" cx="20" cy="85" r="10" fill="#9a9a9a" stroke="black" stroke-width="4" fill-opacity="0.5" />
+                <text class="Lithics lgndlithics" x="50" y="90" style="font-family: sans-serif; font-size: 16px;">Lithics</text>
+            </svg>
+        </div>
+    </div>
+    <div id="lgndcontours">
+        <h4 id="btncontours" class="text-center">Contours<i class="bi bi-list"></i></h4>
+        <div id="lgndContoursDetail">
+            <svg height="60" width="100%">
+                <line x1="10" y1="10" x2="40" y2="10" style="stroke:grey; stroke-width:2; stroke-dasharray: 5, 4;"/>
+                <text x="50" y="15" style="font-family:sans-serif; font-size:16px;">1m</text>
+                <line x1="10" y1="40" x2="40" y2="40" style="stroke:grey; stroke-width:5;"/>
+                <text x="50" y="45" style="font-family:sans-serif; font-size:16px;">5m</text>
+            </svg>
+        </div>
+    </div>
+    <div id="lgndprofiles">
+        <h4 id="btncontours" class="text-center">Profiles<i class="bi bi-list"></i></h4>
+        <div id="lgndContoursDetail">
+            <svg height="30" width="100%">
+                <line x1="10" y1="10" x2="40" y2="10" style="stroke:black; stroke-width:5; "/>
+                <text x="50" y="15" style="font-family:sans-serif; font-size:16px;">Profiles</text>
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- The Modals -->
+<div id="dlgModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="dlgContent" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modal-title" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="tableData" class="modal-body"></div>
+        </div>
+    </div>    
+</div>
+<div id="modal3d" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="3dContent" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modal-title3d" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="data3d" class="modal-body">
+                
+            </div>
+        </div>
+    </div>    
+</div>
+<div id="printModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="3dContent" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 id="modal-titlePrint" class="modal-title">Print Map</h5>
+                <button id="close-print" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="dataPrint" class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-7 row">
+                        <div class="col-auto">
+                            <label for="printName" class="col-form-label">Map name:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="printName" class="form-control findBox" placeholder="Select a name">
+                        </div>                        
+                    </div>
+                    <div class="col-1 text-center">
+                        <button id="btnCompass" class="btn btn-secondary" type="button"><i class="bi bi-compass"></i></button>
+                    </div>
+                    <div class="col-2 text-center">
+                        <button id="btnScale" class="btn btn-secondary" type="button">Toggle ScaleBar</button>
+                    </div>
+                    <div class="col-2 text-center">
+                        <button id="btnScale" class="btn btn-secondary btnShowLegend" type="button">Hide Legend</button>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button id="btnPrint2" class="btn btn-secondary" type="button">Print Map</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>    
+</div>
+<!-- The Sidebar -->
+<div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="bi bi-house"></i></a></li>
+            <li><a href="#filters" role="tab"><i class="bi bi-funnel"></i></a></li>
+            <li><a href="#search" role="tab"><i class="bi bi-search"></i></a></li>
+            <li><a href="#print" role="tab"><i class="bi bi-printer"></i></a></li>
+        </ul>
+
+        <?php if($user->hasPermission(\oramigis\entities\Author::QUERY_DB)): ?>
+        <ul role="tablist">
+            <li><a href="#settings" role="tab"><i class="bi bi-gear"></i></a></li>
+        </ul>
+        <?php endif;?>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+        <div class="sidebar-pane" id="home">
+            <h1 class="sidebar-header">
+                Hama Web Gis
+                <span class="sidebar-close"><i class="bi bi-caret-left"></i></span>
+            </h1>
+            <br>
+            <p>Welcome to the Hama WebGis! </p>
+            <br>
+            <div class="d-grid gap-2">    
+                <button id="btnHome" class="btn btn-secondary" type="button"><i class="bi bi-house"></i> Home</button>
+                <button id="btnHama" class="btn btn-secondary" type="button"><i class="bi bi-crosshair"></i> Zoom to Hama</button>
+                <button id="btnZoom" class="btn btn-secondary" type="button"><i class="bi bi-ui-radios"></i> Disable Zoom Layer Controls</button>
+                <button id="btnShowLegend" class="btn btn-secondary btnShowLegend" type="button"><i class="bi bi-menu-button"></i> Hide Legend</button>
+            </div>
+
+            
+        </div>
+
+        <div class="sidebar-pane" id="filters">
+            <h1 class="sidebar-header">Filters<span class="sidebar-close"><i class="bi bi-caret-left"></i></span></h1>
+            <div class="accordion mt-5" id="accordion-filter" >
+            <div class="filterBox col-12 accordion-item">
+                <h2 class="accordion-header" id="divPeriodsLabel" class="text-center col-12">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePeriods" aria-expanded="true" aria-controls="collapsePeriods">Periods</button>
+                </h2>
+                <div id="collapsePeriods" class="accordion-collapse collapse" data-bs-parent="#accordion-filter">
+                    <div class="accordion-body">
+                        <div id="divPeriods" class="filter-category col-12">
+                            <div id="divFilterPeriods" class="col-12 filterPanel row">
+                                <div class="col-3">
+                                    <?php $a=$layers['periods']; foreach(array_slice($a,0,3) as $period): ?>
+                                        <input type='checkbox' id="<?=$period?>check" name='fltPeriods' value="'<?=$period?>' "><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="col-3">
+                                    <?php $a=$layers['periods']; foreach(array_slice($a,3,3) as $period): ?>
+                                        <input type='checkbox' id="<?=$period?>check" name='fltPeriods' value="'<?=$period?>'" ><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="col-3">
+                                    <?php $a=$layers['periods']; foreach(array_slice($a,6,3) as $period): ?>
+                                        <input type='checkbox' id="<?=$period?>check" name='fltPeriods' value="'<?=$period?>'" ><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="col-3">
+                                    <?php $a=$layers['periods']; foreach(array_slice($a,9,3) as $period): ?>
+                                        <input type='checkbox' id="<?=$period?>check" name='fltPeriods' value="'<?=$period?>'" ><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filterBox col-12 accordion-item">
+                <h2 class="accordion-header" id="divPeriodsLabel" class="text-center col-12">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlans" aria-expanded="true" aria-controls="collapsePlans">Plans</button>
+                </h2>
+                <div id="collapsePlans" class="accordion-collapse collapse" data-bs-parent="#accordion-filter">
+                    <div class="accordion-body">
+                        <div id="divPlan" class="filter-category col-12">
+                            <div id="divFilterPlan" class="col-12 filterPanel">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <?php $a=$layers['plans']; foreach(array_slice($a,0,15) as $period): ?>
+                                            <input type='checkbox' id="<?=$period?>check" name='fltPlan' value="'<?=$period?>' "><?=$period?><br>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <div class="col-6">
+                                        <?php $a=$layers['plans']; foreach(array_slice($a,34,9) as $period): ?>
+                                            <input type='checkbox' id="<?=$period?>check" name='fltPlan' value="'<?=$period?>'" ><?=$period?><br>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>    
+                                <div class="row">
+                                    <div class="col-6">
+                                        <?php $a=$layers['plans']; foreach(array_slice($a,15,19) as $period): ?>
+                                            <input type='checkbox' id="<?=$period?>check" name='fltPlan' value="'<?=$period?>'" ><?=$period?><br>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <?php $a=$layers['plans']; foreach(array_slice($a,43,17) as $period): ?>
+                                            <input type='checkbox' id="<?=$period?>check" name='fltPlan' value="'<?=$period?>'" ><?=$period?><br>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructures" aria-expanded="true" aria-controls="collapseStructures">Structures</button>
+                </h2>
+                <div id="collapseStructures" class="accordion-collapse collapse" data-bs-parent="#accordion-filter">
+                    <div class="accordion-body">
+                        <div id="divStructures" class="filter-category col-12">
+                            <div id="divFilterStructures" class="col-12 filterPanel row">
+                                <div class="col-4">
+                                    <?php $a=$layers['strTypes']; foreach(array_slice($a,0,10) as $period=>$b): ?>
+                                        <input type='checkbox' id="<?=str_replace(' ','', $period)?>check" name='fltStructures' value="'<?=$period?>'" checked><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="col-4">
+                                    <?php $a=$layers['strTypes']; foreach(array_slice($a,10,10) as $period=>$b): ?>
+                                        <input type='checkbox' id="<?=str_replace(' ','', $period)?>check" name='fltStructures' value="'<?=$period?>'" checked><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                                <div class="col-4">
+                                    <?php $a=$layers['strTypes']; foreach(array_slice($a,20,10) as $period=>$b): ?>
+                                        <input type='checkbox' id="<?=str_replace(' ','', $period)?>check" name='fltStructures' value="'<?=$period?>'" checked><?=$period?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>        
+                        </div>
+                        <button id="btnStructuresFilterAll" class="btn btn-secondary" type="button">Check All</button>
+                        <button id="btnStructuresFilterNone" class="btn btn-secondary" type="button">Uncheck All</button>
+                    </div>
+                </div>
+            </div>        
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElev" aria-expanded="true" aria-controls="collapseElev">Filter by Elevation</button>
+                </h2>
+                <div id="collapseElev" class="accordion-collapse collapse" data-bs-parent="#accordion-filter">
+                    <div class="accordion-body">
+                        <div class=" wrapper">
+                            <div class="values">
+                                <span id="range1">
+                                    288
+                                </span>
+                                <span> &dash; </span>
+                                <span id="range2">
+                                    304.32
+                                </span>
+                            </div>
+                            <div class="slider-container">
+                                <div class="slider-track"></div>
+                                <input type="range" min="288" max="304.32" step="0.05" value="288" id="slider-1" oninput="slideOne()">
+                                <input type="range" min="288" max="304.32" step="0.05" value="304.32" id="slider-2" oninput="slideTwo()">
+                            </div>
+                        </div>                                    
+                    </div>
+                </div>
+            </div>     
+            <div class="d-grid gap-2">   
+                <button id="btnFilter" class="btn btn-secondary">Filter</button>
+                <br> 
+            </div>   
+            </div>
+        </div>
+
+        <div class="sidebar-pane" id="search">
+            <h1 class="sidebar-header">Search Features<span class="sidebar-close"><i class="bi bi-caret-left"></i></span></h1>
+            <div class="container-fluid p-0 my-2">
+                <div class="accordion" id="accordionFindings">
+                    <?php foreach(['One'=>'Pottery', 'Two'=>'Lithics', 'Three'=>'Objects'] as $key=>$value): ?>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?=$key?>" aria-expanded="true" aria-controls="collapse<?=$key?>">
+                                <?=$value?>
+                            </button>
+                        </h2>
+                        <div id="collapse<?=$key?>" class="accordion-collapse collapse" data-bs-parent="#accordionFindings">
+                            <div class="accordion-body nopadding">
+                                <div class= "container-fluid shwRow text-center">
+                                    <div class="row align-items-center">
+                                        <div class="col-4" >
+                                            <h5>Show <?=$value?> Tables</h5>
+                                        </div>
+                                        <div class="col-3 text-center" >
+                                            Geometries
+                                            <button id="show<?=$value?>" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#dlgModal"><i class="bi bi-table"></i></button>
+                                        </div>
+                                        <div class="col-3 text-center" >
+                                            Database
+                                            <button id="show<?=$value?>Db" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#dlgModal"><i class="bi bi-table"></i></button>
+                                        </div>
+                                        <div class="col-2 text-center" >
+                                            Join
+                                            <button id="show<?=$value?>_v" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#dlgModal"><i class="bi bi-table"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class= "container-fluid text-center">
+                                    <div id="div<?=$value?>Error" class="errorMsg col-12"></div>
+                                    <div id="divFind<?=$value?>" class="row align-items-center form-group has-error">
+                                        <div class="col-6 nopadding">                          
+                                            <input type="text" id="txtFind<?=$value?>" class="form-control findBox" placeholder="<?=$value?> inventory">
+                                        </div>
+                                        <div class="col-6 d-grid gap-2 nopadding" >
+                                            <button id="btnFind<?=$value?>" class="btn btn-secondary btn-block">Find <?=$value?></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 dataDisplay" id="div<?=$value?>Data"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach ;?>
+                    <div class="d-grid gap-2">    
+                        <button id="btnReset" class="btn btn-secondary btn-block" disabled>Reset Search</button>
+                    </div>           
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-pane" id="print">
+            <h1 class="sidebar-header">Export Map<span class="sidebar-close"><i class="bi bi-caret-left"></i></span></h1>
+            <div id="dataPrint" class="modal-body">
+                <div class="col-12 text-center">
+                    <button id="btnCompass" class="btn btn-secondary" type="button"><i class="bi bi-compass"></i></button>
+                </div>
+                <div class="col-12 text-center">
+                    <button id="btnScale" class="btn btn-secondary" type="button">Toggle ScaleBar</button>
+                </div>
+                <div class="col-12 text-center">
+                    <button id="btnLeg" class="btn btn-secondary btnShowLegend" type="button">Hide Legend</button>
+                </div>
+                <div class="col-12 text-center">
+                    <button id="btnPrint" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#printModal"><i class="bi bi-printer"></i> Export Current View</button>
+                </div>
+                
+            </div>
+        </div>
+        <?php if($user->hasPermission(\oramigis\entities\Author::QUERY_DB)): ?>
+        <div class="sidebar-pane" id="settings">
+            <h1 class="sidebar-header">Query Builder<span class="sidebar-close"><i class="bi bi-caret-left"></i></span></h1>
+            <div class="container-fluid ">
+                <br>
+                <form action="/db/query" method="post" class="">
+                    <label for="query">Query:</label>
+                    <textarea rows="15" cols="40" id="query" name="query[query]" value="<?=$query ?? ''?>"></textarea>
+                    <label for="query">Table:</label>
+                    <input type="checkbox" id="query" name="query[table]" value="true" /><br>
+                    <input type="submit" name="submit" value="Save">
+                </form>
+            </div>
+        </div>
+        <?php endif;?>
+    </div>
+</div>
+<script>
+    var mymap;
+    var previousZoom;
+    var lyrOSM;
+    var lyrWatercolor;
+    var lyrTopo;
+    var lyrImagery;
+    var lyrOutdoors;
+    var lyrSites;
+    var lyrHama;
+    var lyr3d;
+    var lyrSquares;
+    var lyrSearch;
+    var north;
+    var northlatlng;
+    var ctlZoom;
+    var scaleCounter = 1;
+    var ctlLegend;   
+    var objBasemaps;
+    var objOverlays;
+    var ctlLayers;
+    var tooManyAlert = 'Too many features selected: please select a minor number of features';
+    var customIconNorth;
+    var northCounter = 0;
+    var activeFilter = "period IN ('J6' ) AND (elevation is null OR (elevation::real >= 288 AND elevation::real <= 304.3))";
+    var structuresActiveFilter = "(j6 ='1')";
+    var s3dActiveFilter = "period IN ('J6' )";
+    var radMulti = 1;
+    var structuresTypes = [];
+    var zoomCtrl = 'on';
+    var graphicScale;
+    var screenHeight;
+    var printWidth;
+    var legendContent;
+    
+    
+    <?php foreach($layers['tables'] as $key=>$value): ?>
+        var lyr<?=$key?>;
+        
+        var ar<?=ucfirst($key)?>ID = [];
+    <?php endforeach ?>
+    
+    $(document).ready(function(){
+        legendContent = $("#legend");
+        screenHeight = $(window).height();
+        printWidth = screenHeight * 1.5;
+        mymap = L.map('mapcontainer', {
+            center:[35.136535, 36.74941], 
+            zoom:21.43, 
+            zoomControl:false, 
+            maxZoom:28, 
+            minZoom:3, 
+            zoomSnap: 0,
+            zoomDelta: 0.1,
+            attributionControl:false
+        });
+        ctlSidebar = L.control.sidebar('sidebar').addTo(mymap);
+        
+        ctlLegend = new L.Control.Legend({
+            position:'topright',
+            collapsed:false
+        }).addTo(mymap);
+
+        var printPlugin = L.easyPrint({
+            hidden: true,
+            sizeModes: ['Current'],
+            exportOnly: true,
+            hideControlContainer: false
+        }).addTo(mymap);       
+        
+
+        ctlAttribute = L.control.attribution({position:'bottomright'}).addTo(mymap);
+        ctlAttribute.addAttribution('&copy; Filippo Trogi');
+        
+        
+        //   *********** Layer Initialization **********
+                
+        lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
+        lyrTopo = L.tileLayer.provider('OpenTopoMap');
+        lyrImagery = L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', {
+            attribution: '&copy; <a href="https://www.google.com">Google</a> contributors'
+        })
+        lyrImageryTopo = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/satellite-v9', // Specifica l'ID del livello satellitare
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiZnRyb2dpIiwiYSI6ImNseG9pYWIzZjAxaXIyc3F3b3BmdXVvOHoifQ.JPK1l7rsgqM1KmOExoSsPw' // Sostituisci con il tuo token di accesso
+        });
+        lyrWatercolor = L.tileLayer.provider('Stadia.StamenWatercolor');
+        lyrOutdoors = L.tileLayer.provider('Thunderforest.Outdoors', {apikey: '50e71c4e286746fda8805ff52414c9e3'});
+        
+        mymap.addLayer(lyrOutdoors);
+
+        
+        customIconNorth = L.icon({
+            iconUrl: "../../assets/src/images/NorthArrow_05.png",
+            iconSize:     [80, 80], // size of the iconmarker's location
+        }); 
+        
+
+        //   *********** Loading Data **********
+        
+        refreshSites('no')
+        refresh3d(s3dActiveFilter);
+        refreshHama('no'); 
+        <?php foreach($layers['tables'] as $key=>$value): ?>
+            if('<?=$key?>' == 'profiles' || '<?=$key?>' == 'contours' || '<?=$key?>' == 'squares'){
+                refresh<?=$key?>();
+            } else if('<?=$key?>' == 'structures'){
+                refresh<?=$key?>(structuresActiveFilter);
+            } else{
+                refresh<?=$key?>(activeFilter);
+            }
+        <?php endforeach; ?>
+        
+        // ********* Setup Layer Control  ***************
+        
+        objBasemaps = {
+            
+            "Open Street Maps": lyrOSM,
+            "Topo Map":lyrTopo,
+            "Imagery":lyrImagery,
+            "Outdoors":lyrOutdoors
+        };
+        
+        objOverlays = {
+
+        };
+        
+        
+        ctlLayers = L.control.layers(objBasemaps, objOverlays).addTo(mymap);        
+        ctlZoom = L.control.zoom({position:'topright'}).addTo(mymap);
+        ctlTogglescale = L.easyButton({
+            position: 'topright',
+            states: [
+                {
+                    stateName: 'opened-scale',
+                    icon:      '<i class="bi bi-align-center"></i>',
+                    title:     'Remove Scalebar',
+                    onClick: function(btn, map) {
+                        graphicScale.remove();
+                        scaleCounter = 0;
+                        btn.state('closed-scale');
+                    }
+                },
+                {
+                    stateName: 'closed-scale',        // name the state
+                    icon:      '<i class="bi bi-align-center"></i>',               // and define its properties
+                    title:     'Add Scalebar',      // like its title
+                    onClick: function(btn, map) {       // and its callback
+                        
+                        graphicScale.addTo(mymap);
+                        scaleCounter = 1;
+                        btn.state('opened-scale');    // change state on click!
+                    }
+                }
+            ]
+        }).addTo(mymap);
+        var ctlNorthButton = L.easyButton({
+            position: 'topright',
+            states: [
+                {
+                    stateName: 'closed-north',        // name the state
+                    icon:      '<i class="bi bi-compass"></i>',               // and define its properties
+                    title:     'Add North',      // like its title
+                    onClick: function(btn, map) {       // and its callback
+                        
+                        north = refreshNorth().addTo(mymap);
+                        northCounter = 1;
+                        btn.state('opened-north');    // change state on click!
+                    }
+                },
+                {
+                    stateName: 'opened-north',
+                    icon:      '<i class="bi bi-compass-fill"></i>',
+                    title:     'Remove North',
+                    onClick: function(btn, map) {
+                        north.remove();
+                        northCounter = 0;
+                        btn.state('closed-north');
+                    }
+                }
+            ]
+        }).addTo(mymap);
+        
+        graphicScale = L.control.graphicScale({fill:'double', doubleLine: true}).addTo(mymap);
+        ctlMeasure = new L.Control.Measure({position:'topright', primaryLengthUnit: 'meters', secondaryLengthUnit: 'kilometers', primaryAreaUnit: 'hectares', secondaryAreaUnit: 'sqmeters'}).addTo(mymap);
+        //   *********** Legend *********** 
+
+        mymap.on('overlayadd', function(e){
+            var strDiv = "#lgnd"+stripSpaces(e.name);
+            if (e.name=="pottery" || e.name=='objects' || e.name == 'lithics') {
+                var strDiv = ".lgnd"+stripSpaces(e.name);
+                $('#lgndfinds').show();
+            } else if(e.name == 'Hama' || e.name == 'Sites'){
+                $('#lgndsites').show();
+            } else{
+                var strDiv = "#lgnd"+stripSpaces(e.name);
+            }
+            $(strDiv).show();
+            if($('.lgndpottery').css('display')=='none' && $('.lgndobjects').css('display')=='none' && $('.lgndlithics').css('display')=='none'){
+                $('#lgndfinds').hide();
+            }
+            if($('.lgndSites').css('display')=='none' && $('.lgndHama').css('display')=='none'){
+                $('#lgndsites').hide();
+            }
+            
+        });
+        
+        mymap.on('overlayremove', function(e){
+            var strDiv = "#lgnd"+stripSpaces(e.name);
+            if (e.name=="pottery" || e.name=='objects' || e.name == 'lithics' || e.name == 'Sites' || e.name == 'Hama') {
+                var strDiv = ".lgnd"+stripSpaces(e.name);
+            } else{
+                var strDiv = "#lgnd"+stripSpaces(e.name);
+            }
+            $(strDiv).hide();
+            if($('.lgndpottery').css('display')=='none' && $('.lgndobjects').css('display')=='none' && $('.lgndlithics').css('display')=='none'){
+                $('#lgndfinds').hide();
+            }
+            if($('.lgndSites').css('display')=='none' && $('.lgndHama').css('display')=='none'){
+                $('#lgndsites').hide();
+            }
+        });
+        
+
+        
+        $(".legend-container").append($("#legend"));
+        $(".legend-toggle").append($("<i class='legend-toggle-icon bi bi-list' style='color:#000'></i>"));
+        $('#lgndcontours').hide();       
+        $('#lgndprofiles').hide();
+        $('#lgndsites').hide();
+       
+        // ********************Layer add or remove depending by the zoom level ********
+        $('#zoom-level').html(mymap.getZoom());
+        mymap.on('movestart', function(){
+            if(north){
+                mymap.removeLayer(north);
+            }
+        });
+        mymap.on('moveend', function(){
+            if(northCounter == 1){
+                north = refreshNorth().addTo(mymap);
+            }
+        });
+        mymap.on('zoomstart', function(){
+            previousZoom = mymap.getZoom();
+            $('#zoom-start').html(previousZoom);
+        });
+        mymap.on('zoomend', function(){
+            if(zoomCtrl == 'on'){
+                var zoomLevel = mymap.getZoom();
+                $('#zoom-level').html(zoomLevel);
+                if (zoomLevel < 12) {
+                    radMulti = 10;
+                    refreshHama('add');
+                    refreshSites('add');
+                } else if(zoomLevel >= 12 && zoomLevel < 16){
+                    radMulti = 1;
+                    refreshHama('add');
+                    refreshSites('add');
+                    mymap.removeLayer(lyrcontours);
+                    mymap.removeLayer(lyrprofiles);
+                    mymap.addLayer(lyrHama);
+                } else if (zoomLevel < 18) {
+                    mymap.removeLayer(lyrHama);
+                    mymap.addLayer(lyrcontours);
+                    mymap.addLayer(lyrprofiles);
+                    mymap.removeLayer(lyr3d);
+                } else if (zoomLevel < 20) {
+                    mymap.removeLayer(lyrSites);
+                    <?php foreach($layers['tables'] as $key=>$value): ?>
+                        if(lyr<?=$key?> && (lyr<?=$key?> != lyrcontours && lyr<?=$key?> != lyrprofiles)){
+                            mymap.removeLayer(lyr<?=$key?>);
+                        } else{
+                            mymap.addLayer(lyrcontours);
+                            mymap.addLayer(lyrprofiles);
+                        }
+                    <?php endforeach; ?>
+                } else {
+                    if(previousZoom < 20){
+                        mymap.removeLayer(lyrcontours);
+                        <?php foreach($layers['tables'] as $key=>$value): ?>
+                            if(lyr<?=$key?> && (lyr<?=$key?> != lyrcontours && lyr<?=$key?> != lyrprofiles)){
+                                mymap.addLayer(lyr<?=$key?>);
+                            } else{
+                                mymap.removeLayer(lyrcontours);
+                                mymap.removeLayer(lyrprofiles);
+                            }
+                        <?php endforeach; ?>
+                    }
+                }
+            }
+        });
+        // *********** Generic Functions *******************
+        mymap.on('moveend', function(){
+            $('#map-center').html(LatLngTorrayString(mymap.getCenter()));
+        });
+
+        $("#btnHama").click(function(){
+            mymap.setView([35.13653, 36.74941], 21);
+            
+            mymap.removeLayer(lyrHama);
+        });
+        $("#btnHome").click(function(){
+            window.location.href='/hama';
+        });
+        $("#btnPrint").click(function(){
+            if(northCounter == 1){
+                $('#btnCompass').html('<i class="bi bi-compass-fill"></i>');
+            }
+            ctlLayers.remove();
+            ctlTogglescale.remove();
+            ctlNorthButton.remove();
+            ctlMeasure.remove();
+            ctlAttribute.remove();
+            ctlZoom.remove();
+            closeSidebar();
+            $('#sidebar').addClass('collapse');
+        });
+        $("#close-print").click(function(){
+            ctlLayers.addTo(mymap);
+            ctlZoom.addTo(mymap);
+            ctlTogglescale.addTo(mymap);
+            ctlNorthButton.addTo(mymap);
+            ctlMeasure.addTo(mymap);
+            ctlAttribute.addTo(mymap);
+            graphicScale.remove();
+            graphicScale.addTo(mymap);
+            $('#sidebar').removeClass('collapse');
+            $('#mapcontainer').css({
+                width: '100%',
+                height: '100%'
+            });            
+            mymap.invalidateSize();
+        });
+        $("#btnPrint2").click(function(){
+            if($('#printName').val() != ''){
+                var name = $('#printName').val();
+            } else{
+                var name = 'Hama Map';
+            }
+            $('#mapcontainer').css('height', screenHeight + 'px');
+            $('#mapcontainer').css('width', printWidth + 'px');
+            mymap.invalidateSize();
+            printPlugin.printMap('CurrentSize', name);
+        });
+        $('#btnCompass').click(function(){
+            if(northCounter == 1){
+                north.remove();
+                northCounter = 0;
+                $(this).html('<i class="bi bi-compass"></i>');
+            } else{
+                north = refreshNorth().addTo(mymap);
+                northCounter = 1;                
+                $(this).html('<i class="bi bi-compass-fill"></i>');
+            }
+        });
+        $('#btnScale').click(function(){
+            
+            if(scaleCounter == 1){
+                graphicScale.remove();
+                scaleCounter = 0;
+            } else{
+                graphicScale.addTo(mymap);
+                scaleCounter = 1;
+            }
+        });
+        $('#btnZoom').click(function(){            
+            if(zoomCtrl == 'on'){
+                zoomCtrl = 'off'
+                $(this).html('<i class="bi bi-ui-radios"></i> Enable Zoom Layer Controls');
+            } else{
+                zoomCtrl = 'on'
+                $(this).html('<i class="bi bi-ui-radios"></i> Disable Zoom Layer Controls');
+            }
+        });
+        $('#J6check').prop("checked", true);
+        
+    });
+
+    //*******************Style Layers************************************
+    function styleSquares(json) {
+        var att = json.properties;
+        return {
+            color: 'black',
+            weight: 2,
+            fillOpacity: 0
+        }
+    }
+
+    function styleStructures(json) {
+        var att = json.properties;
+        switch (att.type) {
+            <?php foreach($layers['strTypes'] as $type => $values): ?>
+            <?php if($type != 'Mudbrick Wall' && $type != 'Mudbricks' && $type != 'Pit' && $type != 'Missing Wall'): ?>
+                case '<?=$type?>':         
+                    return { color: '<?=$values['color']?>', fillColor: '<?=$values['fill']?>',      fillOpacity: 1 };
+            <?php elseif($type == 'Missing Wall'): ?>
+                case '<?=$type?>':         
+                    return { color: '<?=$values['color']?>',      dashArray: '4 2'};
+            <?php endif; ?>
+            <?php endforeach; ?>
+            case 'Mudbricks':
+                var shapeBrick = new L.PatternRect({
+                    x: 1,
+                    y: 3,
+                    width: 25,
+                    height: 35,
+                    rx: 1,
+                    ry: 1,
+                    fill: true,
+                    fillColor: 'e5a479',
+                    color: 'black',
+                    weight: 2
+                });
+                var brickPattern = new L.Pattern({width:20, height:30, angle: 60});
+                brickPattern.addShape(shapeBrick);
+                brickPattern.addTo(mymap);
+                return { color: 'black', fillPattern: brickPattern, fillOpacity: 1 }; // Filled as per SLD
+            case 'Mudbrick Wall':            
+                var shapeMudBrick = new L.PatternRect({
+                    x: 1,
+                    y: 3,
+                    width: 15,
+                    height: 25,
+                    rx: 1,
+                    ry: 1,
+                    fill: true,
+                    fillColor: '#c7af8d',
+                    color: '#c7af8d',
+                    weight: 2
+                });
+                var mudbrickPattern = new L.Pattern({width:20, height:30, angle: 90});
+                mudbrickPattern.addShape(shapeMudBrick);
+                mudbrickPattern.addTo(mymap);
+                return { color: 'black', fillPattern: mudbrickPattern, fillOpacity: 1 }; // Filled as per SLD
+            case 'Pit':     
+                var pitPattern = new L.StripePattern({
+                    color: '#cccccc',
+                    weight: 1,
+                    spaceWeight: 1,
+                    angle: 45
+                });
+                pitPattern.addTo(mymap);
+                return {
+                    color: '#cccccc',
+                    fillPattern: pitPattern,
+                    fillOpacity: 1,
+                    weight:2,
+                    dashArray: '5, 3'
+                }; 
+            default: 
+                return { color: '#232323', fillColor: '#53d2c3',       fillOpacity: 1 };
+        }
+    };
+
+    function styleContours(json) {
+        var att = json.properties;
+        switch (att.Style) {
+            case '1':
+                return {
+                    color: 'grey',
+                    weight: 2,
+                    opacity: 1,
+                    dashArray: '5, 4'
+                };
+                break;
+            case '5':
+                return {
+                    color: 'grey',
+                    weight: 5,
+                    opacity: 0.8,
+                };
+                break;
+        }
+    }
+    function styleProfiles(json) {
+        var att = json.properties;
+        return {
+            color: 'black',
+            weight: 5,
+            opacity: 0.8,
+        };
+    }
+    function processProfiles(json, lyr) {
+        var att = json.properties;
+        lyr.bindPopup("<h4>Profile "+att.section+"</h4><div class='row'><div class='col-12'><img src='"+att.profile+"' style='max-width:100%'></div><div class='col-12'><img src='"+att.profile2+"' style='max-width:100%'></div></div>");
+    }
+    function processContours(json, lyr) {
+        var att = json.properties;
+        lyr.bindTooltip("<h4>Elevation: "+att.elevation+"</h4>");
+    }
+
+    function processStructures(json, lyr) {
+        var att = json.properties;
+        
+        if(att.type != null){
+            structuresTypes.push(att.type);
+        }
+        structuresTypes = $.grep(structuresTypes, function(elemento, indice) {
+            return $.inArray(elemento, structuresTypes) === indice;
+        });
+        lyr.bindTooltip("<h4>Type: "+att.type+"</h4>Period: "+att.period+"<br>Elevation: "+att.elevation);
+    }
+
+    function processSquares(json, lyr) {
+        var att = json.properties;
+    }
+    
+    function styleLithics(json, latlng){
+        var att = json.properties;
+        if(att.inventory ){
+            arLithicsID.push(att.inventory.toString());
+        }
+        
+        return L.circleMarker(latlng, {radius:8, color:'black',fillColor:'#9a9a9a', fillOpacity:0.5}).bindPopup("<h4>Lithic: "+att.inventory+"</h4>Elevation: "+att.elevation+"<br>Period: "+att.period);
+    }
+    function stylePottery(json, latlng){
+        var att = json.properties;
+        if(att.inventory){
+            arPotteryID.push(att.inventory.toString());
+        }  
+        return L.circleMarker(latlng, {radius:8, color:'black',fillColor:'#ac5b31', fillOpacity:0.5}).bindPopup("<h4>Pottery: "+att.inventory+"</h4><h4>Type: "+att.type+"</h4>Elevation: "+att.elevation+"<br>Period: "+att.period);
+    }
+    function styleObjects(json, latlng){
+        var att = json.properties;        
+        if(att.inventory){
+            arObjectsID.push(att.inventory.toString());
+        }
+        return L.circleMarker(latlng, {radius:8, color:'black',fillColor:'#354523', fillOpacity:0.5}).bindPopup("<h4>Object: "+att.inventory+"</h4>Elevation: "+att.elevation+"<br>Period: "+att.period);
+    }
+    function returnHamaMarker(json, latlng){
+        var att = json.properties;
+        return L.circle(latlng, {radius:(Math.sqrt(att.sitesize*10000))/2*radMulti, color:'deeppink',fillColor:'grey', fillOpacity:0.5}).bindTooltip("<h4><b>Site:</b> "+att.name+"<br><b>Type:</b> "+att.sitetype+"<br><b>Size:</b> "+att.sitesize+" <b>Height:</b> "+att.siteheight+"<br><b>Survey Area:</b> "+att.surveyarea+"<br><b>Bibliography:</b> "+att.bibliograf);
+    }
+    function returnsitesMarker(json, latlng){
+        var att = json.properties;
+        if(att.sitesize){
+            var radius = (Math.sqrt(att.sitesize*10000))/2*radMulti;
+        }else{
+            var radius = 35*radMulti;
+        }
+        return L.circle(latlng, {radius:radius, color:'#800080',fillColor:'grey', fillOpacity:0.5}).bindPopup("<h4><b>Site:</b> "+att.name+"<br><b>Type:</b> "+att.sitetype+"<br><b>Size:</b> "+att.sitesize+" <b>Height:</b> "+att.siteheight+"<br><b>Survey Area:</b> "+att.surveyarea+"<br><b>Bibliography:</b> "+att.bibliograf);
+    }
+    function style3d(json, latlng){
+        var att = json.properties;
+        return { color: 'red', fillColor: '#d8cfd4',      fillOpacity: 0 };
+    }
+    function process3d(json, lyr) {
+        var att = json.properties;
+        lyr.bindPopup("<h4>Structure: "+att.code+" Period: "+att.period+'</h4><div class="text-center"><button id="show3D" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal3d" onclick = "render3d('+"'"+att.code+"'"+')">View 3d Model</button></div>');
+    }
+
+    function styleHeights(json, latlng){
+        var att = json.properties;
+        var customIcon = L.icon({
+            iconUrl: "../../assets/src/images/Elevation2.png",
+
+            iconSize:     [20, 20], // size of the icon
+            iconAnchor:   [10, 15], // point of the icon which will correspond to marker's location
+        });        
+        ar<?=ucfirst($key)?>ID.push(att.elevation.toString());
+        return L.marker(latlng, { icon: customIcon }).bindTooltip("<h4>Height: "+att.elevation+"</h4>Period: "+att.period);
+    }
+
+    
+
+    //*******************Import Layers************************************
+    
+    <?php foreach($layers['tables'] as $key=>$value): ?>
+
+        function refresh<?=$key?>(whr){
+            if(whr){
+                var dataObj = {tbl: '<?=$layers['schema']?>.<?=$value?>', flds:'*', where:whr};
+            } else{
+                var dataObj = {tbl: '<?=$layers['schema']?>.<?=$value?>', flds:'*'};
+            }
+            $.ajax({url:'../../assets/src/load_data.php',
+                data: dataObj,
+                type: 'POST',
+                success: function(response){
+                    if(response.substring(0, 5)=='ERROR'){
+                        alert(response);
+                    } else{
+                        if('<?=$key?>'=='structures'){                            
+                            structuresTypes = [];
+                        }
+                        json<?=$key?> = JSON.parse(response);
+                        if(lyr<?=$key?>){
+                            ctlLayers.removeLayer(lyr<?=$key?>);
+                            lyr<?=$key?>.remove(mymap);
+                        }
+                        if(json<?=$key?>.features[0] && json<?=$key?>.features[0].geometry.type == 'Point'){
+                            ar<?=ucfirst($key)?>ID = [];
+                            lyr<?=$key?> = L.geoJSON(json<?=$key?>, {pointToLayer:style<?=ucfirst($key)?>}).addTo(mymap);
+                            ar<?=ucfirst($key)?>ID.sort(function(a,b){return a-b});
+                            var id = '#txtFind'+'<?=ucfirst($key)?>';
+                            $(id).autocomplete({
+                                source:ar<?=ucfirst($key)?>ID
+                            });
+                            $('.lgnd<?=$key?>').hide();                            
+                            $('.lgnd<?=$key?>').show();
+                        } else if(json<?=$key?>.features[0] && (json<?=$key?>.features[0].geometry.type == 'LineString' || json<?=$key?>.features[0].geometry.type == 'MultiLineString')){
+                            ar<?=ucfirst($key)?>ID = [];
+                            lyr<?=$key?> = L.geoJSON(json<?=$key?>,{style:style<?=ucfirst($key)?>, onEachFeature:process<?=ucfirst($key)?>});
+                        } else if(json<?=$key?>.features[0]){
+                            ar<?=ucfirst($key)?>ID = [];
+                            lyr<?=$key?> = L.geoJSON(json<?=$key?>,{style:style<?=ucfirst($key)?>, onEachFeature:process<?=ucfirst($key)?>}).addTo(mymap);
+                            if('<?=$key?>' == 'structures'){
+                                $('#lgndStructuresDetail').empty();       
+                                <?php foreach($layers['strTypes'] as $str => $values): ?>
+                                    if('<?=$str?>' != 'Pit' && '<?=$str?>' != 'Missing Wall'){
+                                        svg = '<svg id="'+stripSpaces('<?=$str?>')+'" height="21" width="200px"><rect x="10" y="3" width="30" height="15" style="stroke-width: 4; stroke: '+"<?=$values['color']?>"+'; fill: '+"<?=$values['fill']?>"+'; fill-opacity:'+"<?=$values['opacity']?>"+';"></rect><text x="50" y="16" style="font-family: sans-serif; font-size: 16px;"><?=$str?></text></svg>';
+                                    } else if('<?=$str?>' == 'Pit'){
+                                        svg = '<svg id="'+stripSpaces('<?=$str?>')+'" height="21" width="200px"><defs><pattern id="diagonalHatch" width="7" height="7" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="20" y2="20" stroke="<?=$values['color']?>" stroke-width="2" /></pattern></defs><rect x="10" y="3" width="30" height="15" style="stroke-width: 4; stroke: '+"<?=$values['color']?>"+'; fill:url(#diagonalHatch); fill-opacity:'+"<?=$values['opacity']?>"+';stroke-dasharray:4 2"></rect><text x="50" y="16" style="font-family: sans-serif; font-size: 16px;"><?=$str?></text></svg>';
+                                        
+                                    } else if('<?=$str?>' == 'Missing Wall'){
+                                        svg = '<svg id="'+stripSpaces('<?=$str?>')+'" height="21" width="200px"><rect x="10" y="3" width="30" height="15" style="stroke-width: 4; stroke: '+"<?=$values['color']?>"+'; fill: '+"<?=$values['fill']?>"+'; fill-opacity:'+"<?=$values['opacity']?>"+';stroke-dasharray:4 2"></rect><text x="50" y="16" style="font-family: sans-serif; font-size: 16px;"><?=$str?></text></svg>';
+                                    }
+                                    $('#lgndStructuresDetail').append(svg);
+                                    if($.inArray('<?=$str?>', structuresTypes)<0){
+                                        var stringa = stripSpaces('#<?=$str?>')
+                                        $(stringa).remove();
+                                        var strId = stripSpaces('#<?=$str?>check');
+                                        $(strId).prop("checked", false);
+                                    }
+                                <?php endforeach; ?>
+                                
+                            }
+                        } else{                            
+                            $('.lgnd<?=$key?>').hide();
+                        }
+                        if(lyrsquares){
+                            lyrsquares.bringToBack();
+                        }
+                        if(lyr<?=$key?>){
+                            ctlLayers.addOverlay(lyr<?=$key?>, '<?=$key?>');
+                        }
+                    }
+                },
+                error: function(xhr, status, error){
+                    alert("ERROR: "+error);
+                }
+            });
+        }
+    <?php endforeach ?>
+
+    function refreshHama(add){
+        $.ajax({url:'../../assets/src/load_data.php',
+                data: {tbl: 'bigdea.sites', flds:'*', where:"name='Hama'"},
+                type: 'POST',
+                success: function(response){
+                    if(response.substring(0, 5)=='ERROR'){
+                        alert(response);
+                    } else{
+                        jsonHama = JSON.parse(response);
+                        if(lyrHama){
+                            ctlLayers.removeLayer(lyrHama);
+                            lyrHama.remove();
+                        }
+                        
+                        lyrHama = L.geoJSON(jsonHama, {pointToLayer:returnHamaMarker});                     
+                        
+                        ctlLayers.addOverlay(lyrHama, 'Hama');
+                        
+                    }
+                    if(add == 'add'){
+                        lyrHama.addTo(mymap);
+                    }
+                },
+                error: function(xhr, status, error){
+                    alert("ERROR: "+error);
+                }
+            });
+    }
+    function refreshSites(add){
+        $.ajax({url:'../../assets/src/load_data.php',
+                data: {tbl: 'bigdea.sites', flds:'*', where:"name!='Hama'"},
+                type: 'POST',
+                success: function(response){
+                    if(response.substring(0, 5)=='ERROR'){
+                        alert(response);
+                    } else{
+                        jsonSites = JSON.parse(response);
+                        if(lyrSites){
+                            ctlLayers.removeLayer(lyrSites);
+                            lyrSites.remove();
+                        }
+                        lyrSites = L.geoJSON(jsonSites, {pointToLayer:returnsitesMarker});
+                        ctlLayers.addOverlay(lyrSites, 'Sites');
+                        
+                    }
+                    if(add == 'add'){
+                        lyrSites.addTo(mymap);
+                    }
+                },
+                error: function(xhr, status, error){
+                    alert("ERROR: "+error);
+                }
+            });
+    }
+    function refresh3d(whr){
+        if(whr){
+            var dataObj = {tbl: 'hama.structures_3d', flds:'*', where:whr};
+        } else{
+            var dataObj = {tbl: 'hama.structures_3d', flds:'*'};
+        }
+        $.ajax({url:'../../assets/src/load_data.php',
+                data: dataObj,
+                type: 'POST',
+                success: function(response){
+                    if(response.substring(0, 5)=='ERROR'){
+                        alert(response);
+                    } else{
+                        json3d = JSON.parse(response);
+                        if(lyr3d){
+                            ctlLayers.removeLayer(lyr3d);
+                            lyr3d.remove();
+                        }
+                        
+                        lyr3d = L.geoJSON(json3d, {style:style3d, onEachFeature:process3d}).addTo(mymap);                     
+                        
+                        ctlLayers.addOverlay(lyr3d, '3d Structures');
+                        
+                    }
+                },
+                error: function(xhr, status, error){
+                    alert("ERROR: "+error);
+                }
+            });
+    }
+    function refreshNorth(){
+        var mapBounds = mymap.getBounds();
+        var northEast = mapBounds.getSouthEast();
+        var containerPoint = mymap.latLngToContainerPoint(northEast);
+        var offsetX = containerPoint.x - 60;
+        var offsetY=containerPoint.y - 60;
+        var offsetLatLng = mymap.containerPointToLatLng([offsetX, offsetY]);
+        if(north){
+            north.remove();
+        }
+        return L.marker(offsetLatLng, {icon:customIconNorth})
+    }
+    
+    //**********************Filters**************************/
+    $("#btnStructuresFilterAll").click(function(){
+        $("input[name=fltStructures]").prop('checked', true);
+    });
+    
+    $("#btnStructuresFilterNone").click(function(){
+        $("input[name=fltStructures]").prop('checked', false);
+    });
+    $("#btnFilter").click(function(){
+        var arTypes = [];
+        var cntCheck=0;
+        var alertCheck=0;
+        $("input[name=fltPeriods]").each(function(){
+            if (this.checked) {
+                arTypes.push(this.value);
+                cntCheck++;
+            }
+        });
+        
+        if(cntCheck < 5 && cntCheck >0){
+            var whr1 = "period IN ("+arTypes.toString()+")";
+            var whrS = "("+arTypes[0].replace(/'/g,'').toLowerCase()+"='1')";
+            for(let i =1; i < arTypes.length; i++){
+                whrS += ' OR ('+arTypes[i].replace(/'/g,'').toLowerCase()+"='1')";
+            }
+        } else{
+            alertCheck++;
+        }
+
+        var arTypes2 = [];
+        var cntCheck2=0;
+        $("input[name=fltPlan]").each(function(){
+            if (this.checked) {
+                arTypes2.push(this.value);
+                cntCheck2++;
+            }
+        });
+        if(cntCheck2 < 5 && cntCheck2 >0){
+            var whr2 = "plan_name IN ("+arTypes2.toString()+")";
+        } else{
+            alertCheck++;
+        }
+
+        if(cntCheck + cntCheck2 == 0){
+            <?php foreach($layers['tables'] as $key=>$value): ?>
+                if('<?=$key?>' != 'profiles' && '<?=$key?>' != 'contours' && '<?=$key?>' != 'squares' && '<?=$key?>' != 'structures'){
+                    activeFilter = "1=2";
+                    refresh<?=$key?>(activeFilter);
+                    refresh3d(activeFilter);
+                }
+            <?php endforeach; ?>
+        } else if(alertCheck == 2 && cntCheck3 != 0){
+            alert(alertCheck)
+        } else{
+            if(whr1){
+                s3dActiveFilter = whr1;
+                refresh3d(s3dActiveFilter);
+                if(whr2){
+                    <?php foreach($layers['tables'] as $key=>$value): ?>
+                        if('<?=$key?>' != 'profiles' && '<?=$key?>' != 'contours' && '<?=$key?>' != 'squares' && '<?=$key?>' != 'structures'){
+                            activeFilter = whr1+' AND '+whr2+" AND "+whrElev;
+                            refresh<?=$key?>(activeFilter);
+                        }
+                    <?php endforeach; ?>
+                } else{
+                    <?php foreach($layers['tables'] as $key=>$value): ?>
+                        if('<?=$key?>' != 'profiles' && '<?=$key?>' != 'contours' && '<?=$key?>' != 'squares' && '<?=$key?>' != 'structures'){
+                            activeFilter = whr1+" AND "+whrElev;
+                            refresh<?=$key?>(activeFilter);
+                        }
+                    <?php endforeach; ?>
+                }                
+            } else{
+                <?php foreach($layers['tables'] as $key=>$value): ?>
+                    if('<?=$key?>' != 'profiles' && '<?=$key?>' != 'contours' && '<?=$key?>' != 'squares' && '<?=$key?>' != 'structures'){
+                        activeFilter = whr2+" AND "+whrElev;
+                        refresh<?=$key?>(activeFilter);
+                    }
+                <?php endforeach; ?>
+            }
+        }
+
+        var arTypes3 = [];
+        var cntCheck3=0;
+        $("input[name=fltStructures]").each(function(){
+            if (this.checked) {
+                arTypes3.push(this.value);
+                cntCheck3++;
+            }
+        });
+        if (cntCheck3 == 0){
+            structuresActiveFilter = "1=2";
+            refreshstructures(structuresActiveFilter);
+        } else if(cntCheck3 == 30){
+            if(whrS){
+                if(whr2){
+                    structuresActiveFilter = whrS+' AND '+whr2+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                }else{
+                    structuresActiveFilter = whrS+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                }
+            } else if(whr2){
+                structuresActiveFilter = whr2+" AND "+whrElev;
+                refreshstructures(structuresActiveFilter);
+            } else{
+                alert('Please select another filter or choose less structures types')
+            }      
+        } else{
+            if(whrS){
+                if(whr2){
+                    structuresActiveFilter = whrS+' AND '+whr2+" AND type IN ("+arTypes3.toString()+")"+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                }else{
+                    structuresActiveFilter = whrS+" AND type IN ("+arTypes3.toString()+")"+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                }
+            } else {
+                if(whr2){
+                    structuresActiveFilter = whr2+"AND type IN ("+arTypes3.toString()+")"+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                } else{
+                    structuresActiveFilter = "type IN ("+arTypes3.toString()+")"+" AND "+whrElev;
+                    refreshstructures(structuresActiveFilter);
+                }
+            }
+        }
+        $('#lgndcontours').hide();       
+        $('#lgndprofiles').hide();
+        $('#lgndsites').hide();    
+    });
+    
+    //Slider Elevation Filter Functions
+    window.onload = function(){
+        slideOne();
+        slideTwo();
+    }
+
+    let sliderOne = document.getElementById("slider-1");
+    let sliderTwo = document.getElementById("slider-2");
+    let displayValOne = document.getElementById("range1");
+    let displayValTwo = document.getElementById("range2");
+    let minGap = 0;
+    let sliderTrack = document.querySelector(".slider-track");
+    let sliderMaxValue = document.getElementById("slider-1").max;
+    let sliderMinValue = document.getElementById("slider-1").min;
+    var whrElev = 'elevation::numeric >= '+sliderOne.value+' AND elevation::numeric <= '+sliderTwo.value;
+
+    function slideOne(){
+        if(parseFloat(sliderTwo.value) - parseFloat(sliderOne.value) <= minGap){
+            sliderOne.value = parseFloat(sliderTwo.value) - minGap;
+        }
+        displayValOne.textContent = sliderOne.value;
+        fillColor();
+        whrElev = '(elevation::numeric is null OR (elevation::numeric >= '+sliderOne.value+' AND elevation::numeric <= '+sliderTwo.value+"))";
+    }
+    function slideTwo(){
+        if(parseFloat(sliderTwo.value) - parseFloat(sliderOne.value) <= minGap){
+            sliderTwo.value = parseFloat(sliderOne.value) + minGap;
+        }
+        displayValTwo.textContent = sliderTwo.value;
+        fillColor();
+        whrElev = '(elevation::numeric is null OR (elevation::numeric >= '+sliderOne.value+' AND elevation::numeric <= '+sliderTwo.value+"))";
+    }
+    function fillColor(){
+        percent1 = ((sliderOne.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+        percent2 = ((sliderTwo.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+        sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`;
+    }
+
+    function LatLngTorrayString(ll){
+        return "["+ll.lat.toFixed(5)+", "+ll.lng.toFixed(5)+"]";
+    }
+
+  
+    // *********  Legend Functions *****************
+    $("#btnsites").click(function(){
+        $("#lgndSitesDetail").toggle(); 
+    });
+    $("#btnstructures").click(function(){
+        $("#lgndStructuresDetail").toggle(); 
+    });
+    
+    $("#btn3dStructures").click(function(){
+        $("#lgnd3dStructuresDetail").toggle(); 
+    });
+    $("#btnfindings").click(function(){
+        $("#lgndFindingsDetail").toggle(); 
+    });    
+    $("#btnheights").click(function(){
+        $("#lgndHeightsDetail").toggle(); 
+    });
+    $(".btnShowLegend").click(function(){
+        $("#legend").toggle();
+        if($("#legend").css('display') == 'none'){
+            $(this).html('<i class="bi bi-menu-button"></i> Show Legend');
+        } else{
+            $(this).html('<i class="bi bi-menu-button"></i> Hide Legend')
+        }
+    });
+
+    // *********  Search Functions *****************
+    <?php foreach(['hama.pottery_v'=>'Pottery', 'hama.lithics_v'=>'Lithics', 'hama.objects_v'=>'Objects'] as $key=>$value): ?>
+
+    $("#btnFind<?=$value?>").click(function(){
+        var val = $("#txtFind<?=$value?>").val();
+        returnLayerByAttribute('<?=$key?>','inventory',val, function(lyr){
+            if (lyr) {
+                if (lyrSearch) {
+                    lyrSearch.remove();
+                }
+                mymap.setView(lyr.getLatLng(), 25);
+                lyrSearch = L.circle(lyr.getLatLng(), {radius:0.05, color:'red', weight:10, opacity:0.5, fillOpacity:0}).addTo(mymap);
+                
+                $('#btnReset').prop("disabled", false);
+                var att = lyr.feature.properties;
+                $("#div<?=$value?>Data").html("<h4 class='text-center'>Attributes</h4><h5>Inventory: "+att.inventory+"</h5><h6>Type: "+att.type+"</h6><h6>Elevation: "+att.elevation+'</h6>');
+                $("#div<?=$value?>Error").html("");
+                } else {
+                $("#div<?=$value?>Error").html("**** <?=$value?> inventory not found ****");
+            }
+        });
+    });
+
+    
+    <?php endforeach; ?>
+    <?php foreach(['Pottery'=>['Pottery'=>'hama.pottery_v', 'PotteryDb'=>'hama.pottery', 'Pottery_v'=>'hama.pottery_v2'], 'Lithics'=>['Lithics'=>'hama.lithics_v', 'LithicsDb'=>'hama.lithics', 'Lithics_v'=>'hama.lithics_v2'], 'Objects'=>['Objects'=>'hama.objects_v', 'ObjectsDb'=>'hama.objects', 'Objects_v'=>'hama.objects_v2']] as $values): ?>
+        <?php foreach($values as $key=>$value): ?>
+            $("#show<?=$key?>").click(function(){ 
+                closeSidebar();
+                <?php if($key == 'Objects'): ?>
+                    var tabTit = 'Objects in plan';
+                <?php elseif($key == 'ObjectsDB'): ?>
+                    var tabTit = 'Objects Database Table';
+                <?php else: ?>
+                    var tabTit = 'Objects combined';
+                <?php endif; ?>
+                $.ajax({
+                    url:'../../assets/src/load_table.php',
+                    data:{tbl:"<?=$value?>", title:tabTit, where: activeFilter},
+                    type:'POST',
+                    success:function(response){
+                        $("#modal-title").html('Hama <?=$value?>');
+                        $("#tableData").html(response);
+                    },
+                    error:function(xhr, status, error){
+                        $("#tableData").html("ERROR: "+error);
+                    }
+                });
+            })
+            
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+    
+
+    $('#btnReset').click(function(){
+        lyrSearch.remove();
+        $('#btnReset').prop("disabled", true);
+        $('.dataDisplay').hide();
+        $('.findBox').val('');
+    });
+
+    function closeSidebar(){ 
+        ctlSidebar.close();
+    }
+    function render3d(code){
+        $('#data3d').html('<model-viewer alt="3d reconstruction of '+code+'" src="../../assets/images/storage/hama/3d/'+code+'.glb" ar environment-image="../../assets/images/storage/hama/3d/safari_sunset_2k.hdr" poster="../../assets/images/storage/hama/3d/'+code+'.png" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>');
+        $('#modal-title3d').html(code);
+        closeSidebar()
+    }
+
+    function returnLayerByAttribute(tbl,fld,val,callback) {
+        var whr=fld+"='"+val+"'";
+        $.ajax({
+            url:'../../assets/src/load_data.php',
+            data: {tbl:tbl, where:whr},
+            type: 'POST',
+            success: function(response){
+                if (response.substr(0,5)=="ERROR") {
+                    alert(response);
+                    callback(false);
+                } else {
+                    var jsn = JSON.parse(response);
+                    var lyr = L.geoJSON(jsn);
+                    var arLyrs=lyr.getLayers();
+                    if (arLyrs.length>0) {
+                        callback(arLyrs[0]);
+                    } else {
+                        callback(false);
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("ERROR: "+error);
+                callback(false);
+            }
+        });
+    }
+
+    function stripSpaces(str) {
+        return str.replace(/\s+/g, '');
+    }
+    
+</script>
+<?php else: ?>
+	<?php if(!$user): ?>
+	<div class="container s1 center-text">
+		<br>
+		<p>Please <a href="/login?location=<?=urlencode($_SERVER['REQUEST_URI'])?>">Log in</a> in to view this table.</p>
+	</div>
+	<?php else: ?>
+	<div class="container s1 center-text">
+		<br>
+		<p>You don't have permissions to view this table.</p>
+	</div>
+	<?php endif; ?>
+<?php endif; ?>
+	</main>
+	
+	<footer>
+		<div class=" container-fluid row">
+			<div class="col-4">
+				<div class="container social-row">
+					<div class="col-1 center-text">
+						<div class="social-container facebook" id="">
+						  <a href="https://www.facebook.com/orienteanticounimi"><img src="assets/images/facebook.png" alt="facebook"></a>
+						</div>
+					</div>
+					<div class="col-1 center-text">
+						<div class="social-container instagram" id="">
+						  <a href="https://www.instagram.com/orienteanticounimi/"><img src="assets/images/insta.png" alt="instagram"></a>
+						</div>
+					</div>
+					<div class="col-1 center-text">
+						<div class="social-container mail" id="">
+						  <a href="mailto:verticaleye18@gmail.com" class="row"><i class="material-icons">mail</i></a>
+						</div>
+					</div>
+					<div class="col-1 center-text">
+						<div class="social-container website" id="">
+						  <a href="https://orienteantico.unimi.it/"><img src="assets/images/web.png" alt="website"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<p class="center-text s0">&copy; Filippo Trogi 2025</p>
+			</div>
+		</div>
+				
+	</footer>
+    <script type="text/javascript" src="assets/javascripts/script.js"></script>
+	</body>
+</html>
