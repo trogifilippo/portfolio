@@ -1,208 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Filippo Trogi | Gis specialist - Topographer - Archaeologist</title>
-    <meta name="description" content="Filippo Trogi is a GIS specialist, geomatics expert, and archaeologist presenting innovative projects in digital mapping, CAD drafting, and spatial analysis.">
-    <meta name="keywords" content="Gis, CAD, UAV, photogrammetry, survey, 3d">
-    <meta property="og:title" content="Filippo Trogi | Gis specialist - Topographer - Archaeologist" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" 
-      content="Filippo Trogi is a GIS specialist, geomatics expert, and archaeologist presenting innovative projects in digital mapping, CAD drafting, and spatial analysis." />
-    <meta property="og:url" content="https://verticaleye.it/" />
-    <meta property="og:image" content="https://verticaleye.it/assets/images/logo-tricolore.jpg" />
-    <!--favicon START-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!--favicon FINE-->
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/application.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/grid-sistem.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="assets/javascripts/jquery.js"></script>
-  </head>
-  <body>
-    <div class="container-fluid col-flex" id="initial">
-      <div class="logo">
-        <img src="assets/images/logo.png" alt="logo-gif">
-      </div>
-    </div>
-    <header class="container-fluid" id="header">
-      <div class="container-sm row">
-        <div class="logo-container col" id="head-logo">
-          <a href="/"><img src="assets/images/logo.png" alt= "Trogi_logo"></a> 
-        </div>
-        <div class="col" id="navbar">
-          <nav class="invisible" id="">
-            <ul class="nav-list ul-lefted">
-              <li class="active"><a href="/">Home</a></li>                 
-              <li class=""><a href="cv_en">CV</a></li>
-              <li class=""><a href="portfolio">Portfolio</a></li>
-            </ul> 
-          </nav>
-          <nav id="pc-nav">
-            <ul class="nav-list ul-lefted">
-                <li class="active"><a href="/">Home</a></li>
-                <li class=""><a href="cv_en">CV</a></li>
-                <li class=""><a href="portfolio">Portfolio</a></li>                  
-            </ul> 
-          </nav>
-          <nav id="mobile-nav">
-            <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="/" class="active">Home</a>
-              <a href="cv_en">CV</a>
-              <a href="portfolio">Portfolio</a>
-            </div>
-            <!-- Use any element to open the sidenav -->
-            <i onclick="openNav()"class="material-icons" id="menu" style="cursor: pointer;">menu</i>  
-          </nav>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filippo Trogi | Geomatics & Archaeology Specialist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-      </div>
-    </header>
-    <main id="main">
-      <div class="hero container-fluid white-text center-text B" id="hero-home">
-        <div class="hero-titlebox"></div>
-        <div class="title-container"><h1>FILIPPO TROGI <br> Gis specialist | Topographer | Archaeologist</h1></div>
-      </div>
-      <br>
-      <section class="container-fluid col-flex white-text" id="value-proposition">
-        <div class="widescreen-post-hero  container-fluid">
-          <div class="container-md center-text">
-            <div class="rounded s2">
-                <h2 class="s4 center-text animation-element fade-from-top">Welcome to my digital portfolio!</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="col-flex justified container-fluid widescreen white-text" id="brand-identity">
-        <div class="col-flex container-fluid" id="campi">
-          <div class="container-md">
-            <p class="s2 animation-element fade-from-top">I am Filippo Trogi, a GIS specialist, geomatics expert, drone pilot and archaeologist passionate about integrating advanced spatial technologies with innovative design. This site presents a curated selection of my projects, from detailed CAD drafting and topographic surveying to the development of custom web-based GIS platforms. Each project reflects my commitment to transforming complex data into practical solutions while working in multidisciplinary and international environments. Explore my work to discover how technology, creativity, and research come together to shape the future of spatial analysis and design.</p>
-            
-          </div>
-          <div class="container col-flex cta-ok">
-            <a href="portfolio" class="btn o-bg">My most representative projects</a>
-          </div>
-        </div>
-      </section>
-      <section class="col-flex widescreen white-text" id="elements">        
-        <div class="col-flex container s1">
-          <div class="elements-container" id="icondwn"> 
-            <div class="el-item lower">
-              <i class="material-icons">location_on</i>
-              <br>
-              <div class="caption">
-                <p>surveying</p>
-              </div>        
-            </div>
-            <div class="el-item upper">
-              <i class="material-icons">map</i>
-              <br>
-              <div class="caption">
-                <p>GIS & CAD</p>
-              </div>
-            </div>
-            <div class="el-item lower">
-              <i class="material-icons">3d_rotation</i>
-              <br>
-              <div class="caption">
-                <p>3D</p>
-              </div>
-            </div>
-          </div>
-          <div class="container row" id="logo-hover">
-            <div class="el-item lefted">
-              <i class="material-icons">code</i>
-              <br>
-              <div class="caption">
-                <p>coding</p>
-              </div>
-            </div>
-            <div class="el-item animation-element fade-in loop" id="el-logo">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-            </div>
-            <div class="el-item righted">
-              <i class="material-icons">storage</i>
-              <br>
-              <div class="caption">
-                <p>database</p>
-              </div>
-            </div>
-          </div>
-          <div class="elements-container" id="iconup">  
-            <div class="el-item upper">
-              <i class="material-icons">settings</i>
-              <br>
-              <div class="caption">
-                <p>Innovation & technology</p>
-              </div>
-            </div>
-            <div class="el-item lower">
-              <i class="material-icons">group</i>
-              <br>
-              <div class="caption">
-                <p>Team Work</p>
-              </div>   
-            </div>
-            <div class="el-item upper">
-              <i class="material-icons">flash_on</i>
-              <br>
-              <div class="caption">
-                <p>Problem Solving</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="container col-flex cta-ok">
-          <a href="cv" class="btn o-bg">Explore my CV</a>
-        </div>
-      </section>
-    </main>
-    <footer class="container-fluid">
-      <div class="container">
-        <div class="row-top contatti s1">
-          <div class="col-sm-4 center-text phone">
-            <p class="b">Filippo Trogi</p>
-            <ul class="ul-lefted">
-                <li><a href="/">Gis Specialist | Topographer | Archaeologist</a></li>
-              </ul>
-          </div>
-          <div class="col-sm-4 phone" id="phone">
-            <p class="b center-text">PHONE</p>       
-            <ul class="ul-lefted">
-              <li><a href="tel:+39 3466388256" class="row"><i class="material-icons">smartphone</i>+39 3466388256 - Filippo</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 center-text mail" id="mail">
-            <p class="b">MAIL</p>
-            <ul class="ul-lefted">
-              <li><a href="mailto:trogi.filippo@gmail.com" class="row"><i class="material-icons">mail</i>trogi.filippo@gmail.com</a></li>
-            </ul>
-          </div>
-        </div>
-        <br>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f766e', 
+                        secondary: '#0369a1', 
+                        accent: '#d97706', 
+                        dark: '#0f172a', 
+                        light: '#f8fafc', 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .view-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .view-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link.active {
+            background-color: #0f766e;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
         
-        <div class="row s0" id="lower">
-          <div class="col-12 center-text">
-            <p>Filippo Trogi ©2025</p>
-          </div>
-        </div>    
-      </div>
-    </footer>
-    <script type="text/javascript" src="assets/javascripts/script2.js"></script>
-    <script type="text/javascript" src="assets/javascripts/script.js"></script>
-  </body>
+        .bg-dots {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .lang-btn.active {
+            color: white;
+            background: #0f766e;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #0f766e;
+        }
+    </style>
+</head>
+<body class="bg-light text-slate-800 antialiased h-screen overflow-hidden flex flex-col md:flex-row font-sans">
+
+    <!-- Mobile Header -->
+    <header class="md:hidden bg-dark text-white p-4 flex justify-between items-center shadow-lg z-30">
+        <h1 class="text-xl font-bold">Filippo Trogi</h1>
+        <button id="mobile-menu-toggle" class="p-2">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out w-72 bg-dark text-slate-300 flex flex-col h-full flex-shrink-0 z-40 shadow-2xl">
+        <div class="p-8 border-b border-slate-800/50">
+            <h1 class="text-2xl font-bold text-white mb-1 tracking-tight">Filippo Trogi</h1>
+            <p data-i18n="tagline" class="text-primary font-semibold text-xs uppercase tracking-widest mb-6">Geomatics & GIScience</p>
+            
+            <div class="space-y-4 text-sm text-slate-400">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+                    <span data-i18n="location">Prilly, Switzerland</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+                    <a href="mailto:trogi.filippo@gmail.com" class="hover:text-white transition">trogi.filippo@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i data-lucide="linkedin" class="w-4 h-4 text-primary"></i>
+                    <a href="https://www.linkedin.com/in/filippo-trogi/" target="_blank" class="hover:text-white transition">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex-1 p-6 space-y-2">
+            <button onclick="switchView('overview')" id="nav-overview" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all group">
+                <i data-lucide="layout-dashboard" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                <span data-i18n="nav-home">Home & Profile</span>
+            </button>
+            <button onclick="switchView('portfolio')" id="nav-portfolio" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all group">
+                <i data-lucide="folder-kanban" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                <span data-i18n="nav-portfolio">Portfolio</span>
+            </button>
+            <button onclick="switchView('experience')" id="nav-experience" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all group">
+                <i data-lucide="briefcase" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                <span data-i18n="nav-experience">Experience</span>
+            </button>
+            <button onclick="switchView('skills')" id="nav-skills" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all group">
+                <i data-lucide="cpu" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                <span data-i18n="nav-skills">Skills</span>
+            </button>
+            <button onclick="switchView('education')" id="nav-education" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all group">
+                <i data-lucide="graduation-cap" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                <span data-i18n="nav-education">Education</span>
+            </button>
+        </nav>
+        
+        <!-- Language Switcher -->
+        <div class="p-6 border-t border-slate-800/50">
+            <div class="flex bg-slate-900/50 rounded-lg p-1">
+                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn flex-1 text-[10px] font-bold py-1 px-2 rounded-md transition-all">EN</button>
+                <button onclick="setLanguage('it')" id="lang-it" class="lang-btn flex-1 text-[10px] font-bold py-1 px-2 rounded-md transition-all">IT</button>
+                <button onclick="setLanguage('fr')" id="lang-fr" class="lang-btn flex-1 text-[10px] font-bold py-1 px-2 rounded-md transition-all">FR</button>
+            </div>
+        </div>
+        
+        <div class="p-8 text-xs font-mono text-slate-600">
+            v2.9.0 | 2025 Comprehensive Portfolio
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-6 md:p-12 bg-dots relative">
+        
+        <!-- ================= SECTION: OVERVIEW ================= -->
+        <section id="overview" class="view-section active max-w-6xl mx-auto space-y-12">
+            <header class="space-y-4">
+                <div data-i18n="badge-title" class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-widest">Geomatics & archaeology specialist</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                    <span data-i18n="hero-1">Data Archaeology,</span><br>
+                    <span data-i18n="hero-2" class="text-primary">Territorial Geomatics.</span>
+                </h2>
+                <p data-i18n="hero-desc" class="text-slate-600 text-lg max-w-3xl leading-relaxed">
+                    Specialist in Geomatics, GIScience Researcher, and certified UAS Pilot. Expert in spatial data analysis, remote sensing, and 3D modeling. Multidisciplinary background combining digital archaeology with the most modern data acquisition and management technologies (WebGIS, relational databases, drone photogrammetry). Specialized in the management of large datasets (Big Data) and the development of Spatial Data Infrastructures (SDI).
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="globe-2" class="text-primary"></i>
+                    </div>
+                    <h3 data-i18n="card-1-title" class="font-bold text-xl mb-2">GIS & WebGIS</h3>
+                    <p data-i18n="card-1-desc" class="text-sm text-slate-500">Spatial Data Infrastructures (SDI) and PostGIS architectures for managing complex archaeological records.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl shadow-sm border-b-4 border-secondary">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="plane" class="text-secondary"></i>
+                    </div>
+                    <h3 data-i18n="card-2-title" class="font-bold text-xl mb-2">UAS Pilot</h3>
+                    <p data-i18n="card-2-desc" class="text-sm text-slate-500">Drone photogrammetric survey for heritage monitoring and high-precision technical inspections.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl shadow-sm border-b-4 border-accent">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="database" class="text-accent"></i>
+                    </div>
+                    <h3 data-i18n="card-3-title" class="font-bold text-xl mb-2">Data Science</h3>
+                    <p data-i18n="card-3-desc" class="text-sm text-slate-500">Quantitative and spatial analysis via Python, integrating archaeological evidence and environmental data.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-3xl shadow-xl border border-slate-100 overflow-hidden relative">
+                <h3 data-i18n="chart-title" class="text-2xl font-bold text-slate-800 mb-8">Competency Matrix</h3>
+                <div class="chart-container">
+                    <canvas id="competencyRadar"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: PORTFOLIO ================= -->
+        <section id="portfolio" class="view-section max-w-6xl mx-auto space-y-10">
+            <div>
+                <h2 data-i18n="port-title" class="text-3xl font-bold text-slate-900 mb-2">Project Portfolio</h2>
+                <p data-i18n="port-subtitle" class="text-slate-500">A comprehensive history of recent projects and professional surveys.</p>
+            </div>
+
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projects are rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION: EXPERIENCE ================= -->
+        <section id="experience" class="view-section max-w-4xl mx-auto space-y-12">
+            <h2 data-i18n="exp-title" class="text-3xl font-bold text-slate-900">Professional Experience</h2>
+            <div class="relative pl-8 border-l-2 border-slate-200 space-y-12">
+                <!-- Vertical Eye -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-primary shadow-sm"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 data-i18n="exp-1-title" class="text-xl font-bold text-slate-900">UAS Pilot, Topographer & GIS Consultant</h3>
+                        <span class="text-xs font-mono font-bold text-primary bg-primary/10 px-2 py-1 rounded">2019 – 2025</span>
+                    </div>
+                    <p data-i18n="exp-1-org" class="text-slate-500 font-semibold mb-3">Vertical Eye - Drone Solution</p>
+                    <p data-i18n="exp-1-desc" class="text-sm text-slate-600 leading-relaxed">Execution of integrated topographic surveys (Drone, GNSS, Total Station) for engineering, construction, and cultural heritage. Complete photogrammetric pipelines for high-precision technical deliverables. Consultancy for infrastructure monitoring and environmental analysis. Mobile data collection (Mobile GIS) via QField and Mapit GIS.</p>
+                </div>
+                <!-- Unimi Big-DEA -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-secondary shadow-sm"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 data-i18n="exp-2-title" class="text-xl font-bold text-slate-900">Research Fellow & WebGIS Developer</h3>
+                        <span class="text-xs font-mono font-bold text-secondary bg-secondary/10 px-2 py-1 rounded">2023 – 2024</span>
+                    </div>
+                    <p data-i18n="exp-2-org" class="text-slate-500 font-semibold mb-3">University of Milan | Project: Big-DEA</p>
+                    <p data-i18n="exp-2-desc" class="text-sm text-slate-600 leading-relaxed">Full Stack development of a WebGIS platform for managing complex spatial data in Syria (Ebla). Architecture based on PostgreSQL/PostGIS (Backend) and Leaflet/JS/PHP (Frontend). Satellite Big Data analysis for anthropic traces in arid environments. Creation of interactive dashboards.</p>
+                </div>
+                <!-- Unimi Denmark -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-accent shadow-sm"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 data-i18n="exp-3-title" class="text-xl font-bold text-slate-900">Research Fellow & GIS Developer</h3>
+                        <span class="text-xs font-mono font-bold text-accent bg-accent/10 px-2 py-1 rounded">2022 – 2023</span>
+                    </div>
+                    <p data-i18n="exp-3-org" class="text-slate-500 font-semibold mb-3">University of Milan & National Museum of Denmark</p>
+                    <p data-i18n="exp-3-desc" class="text-sm text-slate-600 leading-relaxed">Modeling and implementation of a centralized spatial database for Bronze Age archaeological data. Creation of a WebGIS interface (QGIS Server/Leaflet) with real-time spatial queries. ETL protocols for multi-source data normalization. 3D reconstructions from technical plans.</p>
+                </div>
+                <!-- Fieldwork -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-slate-400 shadow-sm"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 data-i18n="exp-4-title" class="text-xl font-bold text-slate-900">Archaeologist & Field Supervisor</h3>
+                        <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">2017 – 2022</span>
+                    </div>
+                    <p data-i18n="exp-4-org" class="text-slate-500 font-semibold mb-3">Various Archaeology Societies</p>
+                    <p data-i18n="exp-4-desc" class="text-sm text-slate-600 leading-relaxed">Field supervision for preventive and planned archaeological excavations. Precision topographic and photogrammetric surveys. Scientific reporting and technical documentation according to heritage protection standards. Management of patrimonial databases and graphic archives (CAD, GIS).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: SKILLS ================= -->
+        <section id="skills" class="view-section max-w-5xl mx-auto space-y-12">
+            <h2 data-i18n="skills-title" class="text-3xl font-bold text-slate-900">Technological Skillset</h2>
+            <div class="bg-white p-10 rounded-3xl shadow-xl border border-slate-100">
+                <div class="chart-container">
+                    <canvas id="skillsBarChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                <div class="space-y-4">
+                    <h4 data-i18n="skill-cat-1" class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">Programming & DB</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Python (GeoPandas)</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">SQL (PostgreSQL/PostGIS)</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">JS (Leaflet/JQuery)</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Git/Github</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h4 data-i18n="skill-cat-2" class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">GIS & Remote Sensing</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">QGIS Advanced</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">ArcGIS Pro</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">Photogrammetry</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">Google Earth Engine</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">PyQGis</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-semibold">WebGis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: EDUCATION ================= -->
+        <section id="education" class="view-section max-w-4xl mx-auto space-y-12">
+            <h2 data-i18n="edu-title" class="text-3xl font-bold text-slate-900">Education</h2>
+            <div class="grid grid-cols-1 gap-8">
+                <!-- Master Padova -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 flex gap-6 hover:border-primary transition-colors">
+                    <div class="flex-shrink-0 w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary font-bold text-xl">MAS</div>
+                    <div>
+                        <div class="flex justify-between items-start">
+                           <h3 data-i18n="edu-1-title" class="text-xl font-bold text-slate-900 leading-tight">Master's in GIS & UAS</h3>
+                           <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">110/110 Lode</span>
+                        </div>
+                        <p class="text-slate-500 font-medium">University of Padua | 2023 – 2024</p>
+                        <p data-i18n="edu-1-desc" class="text-sm text-slate-400 mt-2 italic">Professional Master Level II. Specialized in SDI, advanced photogrammetry, and drone regulations.</p>
+                    </div>
+                </div>
+                <!-- Magistrale Bologna -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 flex gap-6 hover:border-secondary transition-colors">
+                    <div class="flex-shrink-0 w-16 h-16 bg-secondary/5 rounded-2xl flex items-center justify-center text-secondary font-bold text-xl">MA</div>
+                    <div>
+                        <div class="flex justify-between items-start">
+                           <h3 data-i18n="edu-2-title" class="text-xl font-bold text-slate-900 leading-tight">Master's Degree in Archaeology</h3>
+                           <span class="text-xs font-bold text-secondary bg-secondary/10 px-2 py-1 rounded">110/110 Lode</span>
+                        </div>
+                        <p class="text-slate-500 font-medium">University of Bologna | 2014 – 2018</p>
+                        <p data-i18n="edu-2-desc" class="text-sm text-slate-400 mt-2 italic">Specialized in Ancient World Cultures. Honors with "Bacio Accademico". Thesis on numerical spatial analysis.</p>
+                    </div>
+                </div>
+                <!-- Triennale Modena -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 flex gap-6 hover:border-accent transition-colors">
+                    <div class="flex-shrink-0 w-16 h-16 bg-accent/5 rounded-2xl flex items-center justify-center text-accent font-bold text-xl">BA</div>
+                    <div>
+                        <div class="flex justify-between items-start">
+                           <h3 data-i18n="edu-3-title" class="text-xl font-bold text-slate-900 leading-tight">Bachelor's Degree in Cultural Heritage</h3>
+                           <span class="text-xs font-bold text-accent bg-accent/10 px-2 py-1 rounded">110/110 Lode</span>
+                        </div>
+                        <p class="text-slate-500 font-medium">University of Modena and Reggio Emilia | 2010 – 2013</p>
+                        <p data-i18n="edu-3-desc" class="text-sm text-slate-400 mt-2 italic">Sciences of Natural and Cultural Heritage. Thesis on quantitative stratigraphic formation processes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- MULTI-LANGUAGE DICTIONARY ---
+        const translations = {
+            en: {
+                "tagline": "Geomatics & GIScience",
+                "location": "Prilly, Switzerland",
+                "nav-home": "Home & Profile",
+                "nav-portfolio": "Portfolio",
+                "nav-experience": "Experience",
+                "nav-skills": "Skills",
+                "nav-education": "Education",
+                "badge-title": "Geomatics & archaeology specialist",
+                "hero-1": "Data Archaeology,",
+                "hero-2": "Territorial Geomatics.",
+                "hero-desc": "Specialist in Geomatics, GIScience Researcher, and certified UAS Pilot. Expert in spatial data analysis, remote sensing, and 3D modeling. Multidisciplinary background combining digital archaeology with the most modern data acquisition and management technologies (WebGIS, relational databases, drone photogrammetry). Specialized in the management of large datasets (Big Data) and the development of Spatial Data Infrastructures (SDI).",
+                "card-1-title": "GIS & WebGIS",
+                "card-1-desc": "Spatial Data Infrastructures (SDI) and PostGIS architectures for managing complex archaeological records.",
+                "card-2-title": "UAS Pilot",
+                "card-2-desc": "Drone photogrammetric survey for heritage monitoring and high-precision technical inspections.",
+                "card-3-title": "Data Science",
+                "card-3-desc": "Quantitative and spatial analysis via Python, integrating archaeological evidence and environmental data.",
+                "chart-title": "Competency Matrix",
+                "port-title": "Project Portfolio",
+                "port-subtitle": "Complete history of recent projects and professional surveys.",
+                "exp-title": "Professional Experience",
+                "exp-1-title": "UAS Pilot, Topographer & GIS Consultant",
+                "exp-1-org": "Vertical Eye - Drone Solution",
+                "exp-1-desc": "Execution of integrated topographic surveys (Drone, GNSS, Total Station) for engineering, construction, and cultural heritage. Complete photogrammetric pipelines for high-precision technical deliverables. Consultancy for infrastructure monitoring and environmental analysis. Mobile data collection (Mobile GIS) via QField and Mapit GIS.",
+                "exp-2-title": "Research Fellow & WebGIS Developer",
+                "exp-2-org": "University of Milan | Project: Big-DEA",
+                "exp-2-desc": "Full Stack development of a WebGIS platform for managing complex spatial data in Syria (Ebla). Architecture based on PostgreSQL/PostGIS (Backend) and Leaflet/JS/PHP (Frontend). Satellite Big Data analysis for anthropic traces in arid environments. Creation of interactive dashboards.",
+                "exp-3-title": "Research Fellow & GIS Developer",
+                "exp-3-org": "University of Milan & National Museum of Denmark",
+                "exp-3-desc": "Modeling and implementation of a centralized spatial database for Bronze Age archaeological data. Creation of a WebGIS interface (QGIS Server/Leaflet) with real-time spatial queries. ETL protocols for multi-source data normalization. 3D reconstructions from technical plans.",
+                "exp-4-title": "Archaeologist & Field Supervisor",
+                "exp-4-org": "Various Archaeology Societies",
+                "exp-4-desc": "Field supervision for preventive and planned archaeological excavations. Precision topographic and photogrammetric surveys. Scientific reporting and technical documentation according to heritage protection standards. Management of patrimonial databases and graphic archives (CAD, GIS).",
+                "skills-title": "Technological Skillset",
+                "skill-cat-1": "Programming & DB",
+                "skill-cat-2": "GIS & Remote Sensing",
+                "edu-title": "Education",
+                "edu-1-title": "Master's in GIS & UAS",
+                "edu-1-desc": "Level II Specializing Master. SDI, advanced photogrammetry, and UAS regulations.",
+                "edu-2-title": "Master's Degree in Archaeology",
+                "edu-2-desc": "Ancient World Cultures. Honors with 'Academic Praise'. Thesis on numerical spatial analysis.",
+                "edu-3-title": "Bachelor's Degree in Cultural Heritage",
+                "edu-3-desc": "Natural and Cultural Heritage Sciences. Thesis on quantitative stratigraphic processes.",
+                "radar-labels": ['GIS/IDS', 'Programming', 'UAV/Photogram.', 'PostGIS/SQL', 'Data Science']
+            },
+            it: {
+                "tagline": "Geomatica & GIScience",
+                "location": "Prilly, Svizzera",
+                "nav-home": "Home & Profilo",
+                "nav-portfolio": "Portfolio",
+                "nav-experience": "Esperienza",
+                "nav-skills": "Competenze",
+                "nav-education": "Formazione",
+                "badge-title": "Specialista in Geomatica e Archeologia",
+                "hero-1": "Archeologia dei dati,",
+                "hero-2": "Geomatica del territorio.",
+                "hero-desc": "Specialista in Geomatica, Ricercatore GIScience e Pilota UAS certificato. Esperto in analisi di dati spaziali, telerilevamento e modellazione 3D. Background multidisciplinare che unisce l'archeologia digitale alle più moderne tecnologie di acquisizione e gestione dati (WebGIS, database relazionali, fotogrammetria da drone). Specializzato nella gestione di grandi dataset (Big Data) e nello sviluppo di infrastrutture di dati spaziali (IDS).",
+                "card-1-title": "GIS & WebGIS",
+                "card-1-desc": "Infrastrutture di dati spaziali (IDS) e architetture PostGIS per record archeologici complessi.",
+                "card-2-title": "Pilota UAS",
+                "card-2-desc": "Rilievo fotogrammetrico da drone per monitoraggio patrimonio e ispezioni tecniche.",
+                "card-3-title": "Data Science",
+                "card-3-desc": "Analisi quantitativa tramite Python, integrando evidenze archeologiche e dati ambientali.",
+                "chart-title": "Assetto delle Competenze",
+                "port-title": "Portfolio Progetti",
+                "port-subtitle": "Cronologia completa dei progetti recenti e dei rilievi professionali.",
+                "exp-title": "Esperienza Professionale",
+                "exp-1-title": "Pilota UAS, Topografo e Consulente GIS",
+                "exp-1-org": "Vertical Eye - Drone Solution",
+                "exp-1-desc": "Esecuzione di rilievi topografici integrati (Drone, GNSS, Stazione Totale) per ingegneria, edilizia e beni culturali. Pipeline fotogrammetriche complete per la produzione di deliverable tecnici ad alta precisione (centimetrica). Consulenza per il monitoraggio di infrastrutture e analisi ambientali. Raccolta dati mobili (Mobile GIS) tramite QField e Mapit GIS.",
+                "exp-2-title": "Assegnista di Ricerca & Sviluppatore WebGIS",
+                "exp-2-org": "Università degli Studi di Milano | Progetto: Big-DEA",
+                "exp-2-desc": "Sviluppo 'Full Stack' di una piattaforma WebGIS per la gestione di dati territoriali complessi in Siria (Ebla). Architettura basata su PostgreSQL/PostGIS (Backend) e Leaflet/JS/PHP (Frontend). Analisi di Big Data territoriali tramite telerilevamento satellitare per identificare tracce antropiche in ambienti aridi. Creazione di dashboard interattive e visualizzazione dati per la diffusione scientifica.",
+                "exp-3-title": "Assegnista di Ricerca & Sviluppatore SIG",
+                "exp-3-org": "Università degli Studi di Milano & National Museum of Denmark",
+                "exp-3-desc": "Modellazione e implementazione di un database spaziale centralizzato per dati archeologici della Bronze Age. Creazione di un'interfaccia di consultazione online (QGIS Server/Leaflet) con interrogazione spaziale in tempo reale. Definizione di protocolli ETL per la normalizzazione di dati multi-sorgente. Ricostruzioni 3D di siti e reperti da piani e disegni tecnici.",
+                "exp-4-title": "Archeologo, Tecnico di Rilievo e Supervisore di Campo",
+                "exp-4-org": "Varie società di archeologia",
+                "exp-4-desc": "Direzione di squadre sul campo per scavi archeologici preventivi e programmati. Realizzazione di rilievi topografici e fotogrammetrici di precisione. Redazione di report scientifici e documentazione tecnica conforme agli standard di tutela. Gestione di database patrimoniali e archivi grafici (CAD, GIS).",
+                "skills-title": "Skillset Tecnologico",
+                "skill-cat-1": "Programmazione & DB",
+                "skill-cat-2": "GIS & Telerilevamento",
+                "edu-title": "Formazione",
+                "edu-1-title": "Master in GIS & UAS",
+                "edu-1-desc": "Master di II livello. SDI, fotogrammetria avanzata e normativa droni.",
+                "edu-2-title": "Laurea Magistrale in Archeologia",
+                "edu-2-desc": "Archeologia e Culture del Mondo Antico. Lode e Bacio Accademico. Tesi su analisi spaziale numerica.",
+                "edu-3-title": "Laurea Triennale in Beni Culturali",
+                "edu-3-desc": "Scienze dei Beni Naturali e Culturali. Tesi sui processi formativi stratigrafici quantitativi.",
+                "radar-labels": ['GIS/IDS', 'Programmazione', 'UAV/Fotogram.', 'PostGIS/SQL', 'Data Science']
+            },
+            fr: {
+                "tagline": "Géomatique & SIG",
+                "location": "Prilly, Suisse",
+                "nav-home": "Accueil & Profil",
+                "nav-portfolio": "Portfolio",
+                "nav-experience": "Expérience",
+                "nav-skills": "Compétences",
+                "nav-education": "Formation",
+                "badge-title": "Spécialiste en géomatique et archéologie",
+                "hero-1": "Archéologie des données,",
+                "hero-2": "Géomatique du territoire.",
+                "hero-desc": "Spécialiste en géomatique, chercheur en science SIG et pilote UAS certifié. Expert en analyse de données spatiales, télédétection et modélisation 3D. Parcours multidisciplinaire alliant l'archéologie numérique alle tecnologie les plus modernes d'acquisition et de gestion de données (WebGIS, bases de données relationnelles, photogrammétrie par drone). Spécialisé dans la gestion de grands ensembles de données (Big Data) et le développement d'infrastructures de données spatiales (IDS).",
+                "card-1-title": "SIG & WebGIS",
+                "card-1-desc": "Infrastructures de données spatiales (IDS) et architectures PostGIS pour les archives complexes.",
+                "card-2-title": "Pilote UAS",
+                "card-2-desc": "Levés photogrammétriques par drone pour le patrimoine e le ispezioni tecniche.",
+                "card-3-title": "Science des Données",
+                "card-3-desc": "Analyse quantitative via Python, integrando archeologia e amiente.",
+                "chart-title": "Matrice de Compétences",
+                "port-title": "Portfolio Projets",
+                "port-subtitle": "Chronologie complète des projets récents et des levés professionnels.",
+                "exp-title": "Expérience Professionnelle",
+                "exp-1-title": "Pilote UAS, Topographe et Consultant SIG",
+                "exp-1-org": "Vertical Eye - Drone Solution",
+                "exp-1-desc": "Exécution de levés topographiques intégrés (Drone, GNSS, Station Totale) pour l'ingénierie, le bâtiment et le patrimoine. Pipelines photogrammétriques de haute précision. Conseil pour le suivi des infrastructures. Collecte de données mobiles (Mobile GIS) via QField et Mapit GIS.",
+                "exp-2-title": "Chercheur Associé & Développeur WebGIS",
+                "exp-2-org": "Université de Milan | Projet: Big-DEA",
+                "exp-2-desc": "Développement 'Full Stack' d'une plateforme WebGIS pour la gestion de données spatiales complexes en Syrie (Ebla). Architecture basée sur PostgreSQL/PostGIS (Backend) et Leaflet/JS/PHP (Frontend). Analyse de Big Data territoriales. Création de tableaux de bord interactifs.",
+                "exp-3-title": "Chercheur Associé & Développeur SIG",
+                "exp-3-org": "Université de Milan & National Museum of Denmark",
+                "exp-3-desc": "Modélisation et mise en œuvre d'une base de données spatiale centralisée pour l'âge du Bronze. Création d'une interface en ligne (QGIS Server/Leaflet) avec interrogation spatiale en temps réel. Protocoles ETL pour la normalisation de données multi-sources. Reconstructions 3D.",
+                "exp-4-title": "Archéologue, Technicien de Levé et Superviseur de Terrain",
+                "exp-4-org": "Diverses sociétés d'archéologie",
+                "exp-4-desc": "Direction d'équipes sur le terrain pour des fouilles archéologiques. Réalisation de levés topographiques et photogrammétriques de précision. Rédaction de rapports scientifiques et documentation technique. Gestion de bases de données patrimoniales (CAO, SIG).",
+                "skills-title": "Compétences Techniques",
+                "skill-cat-1": "Programmation & BD",
+                "skill-cat-2": "SIG & Télédétection",
+                "edu-title": "Formation",
+                "edu-1-title": "Master en SIG & UAS",
+                "edu-1-desc": "Master de niveau II. IDS, photogrammétrie avancée et réglementation UAS.",
+                "edu-2-title": "Master en Archéologie",
+                "edu-2-desc": "Cultures du monde antique. Félicitations du jury. Thèse sur l'analyse spatiale numérique.",
+                "edu-3-title": "Bachelor en Patrimoine Culturel",
+                "edu-3-desc": "Sciences du patrimoine naturel et culturel. Thèse sur les processus stratigraphiques.",
+                "radar-labels": ['SIG/IDS', 'Programmation', 'UAV/Photogram.', 'PostGIS/SQL', 'Science des Données']
+            }
+        };
+
+        // --- EXTENDED PROJECT DATA (12 PROJECTS) ---
+        const projectData = [
+            {
+                id: "bigdea", icon: "layers",
+                titles: { en: "UNIMI | Big-DEA", it: "UNIMI | Big-DEA", fr: "UNIMI | Big-DEA" },
+                descs: { en: "Created and managed GIS/DB systems for Ebla region (Syria). Remote sensing for Bronze Age sites.", it: "Creazione e gestione GIS/DB per la regione di Ebla (Siria). Remote sensing per siti dell'Età del Bronzo.", fr: "SIG/BD pour la région d'Ebla (Syrie). Télédétection pour l'âge du bronze." }
+            },
+            {
+                id: "ordinary", icon: "landmark",
+                titles: { en: "Ordinary Lives", it: "Ordinary Lives", fr: "Ordinary Lives" },
+                descs: { en: "UNIMI & National Museum of Denmark. WebGIS and 3D reconstructions for early urban societies.", it: "UNIMI & Museo Nazionale Danese. WebGIS e ricostruzioni 3D per le prime società urbane.", fr: "UNIMI & Musée national du Danemark. WebGIS et reconstructions 3D." }
+            },
+            {
+                id: "ciclovia", icon: "bike",
+                titles: { en: "Ciclovia del Sole", it: "Ciclovia del Sole", fr: "Ciclovia del Sole" },
+                descs: { en: "Bologna Region. Aerophotogrammetric survey, DTM production for bike path design.", it: "Regione Bologna. Rilievo aerofotogrammetrico e produzione DTM per la progettazione ciclabile.", fr: "Région de Bologne. Levé aérophotogrammétrique et production de MNT pour piste cyclable." }
+            },
+            {
+                id: "pontsaintmartin", icon: "castle",
+                titles: { en: "Old Castle Survey", it: "Castello di Pont-Saint-Martin", fr: "Château de Pont-Saint-Martin" },
+                descs: { en: "Drone survey of the Old Castle for restoration planning. Orthophotos and elevations.", it: "Rilievo da drone del Castello Vecchio per restauro. Ortofoto ed elevazioni.", fr: "Levé par drone du Vieux Château pour restauration." }
+            },
+            {
+                id: "monza", icon: "map-pinned",
+                titles: { en: "Monza Archaeology", it: "Mappa Monza e Brianza", fr: "Carte Monza et Brianza" },
+                descs: { en: "Drone survey of archaeological areas for the provincial archaeological map.", it: "Rilievo da drone di aree di interesse archeologico per la mappa provinciale.", fr: "Levé par drone de zones archéologiques pour la carte provinciale." }
+            },
+            {
+                id: "parma", icon: "home",
+                titles: { en: "Parma Photogrammetry", it: "Rilievi Parma", fr: "Levés Parme" },
+                descs: { en: "Photogrammetric surveys for building renovation. CAD elevations and floor plans.", it: "Rilievi fotogrammetrici per ristrutturazioni edilizie. Elevazioni CAD e piante.", fr: "Levés photogrammétriques pour rénovation. Élévations CAO et plans." }
+            },
+            {
+                id: "olina", icon: "bridge",
+                titles: { en: "Olina Bridge", it: "Ponte di Olina", fr: "Pont d'Olina" },
+                descs: { en: "Laser scanning and drone survey for restoration of the historic bridge (Pavullo).", it: "Laser scanning e rilievo drone per il restauro dello storico ponte (Pavullo).", fr: "Scanner laser et drone pour la restauration du pont (Pavullo)." }
+            },
+            {
+                id: "introd", icon: "bridge",
+                titles: { en: "Introd Bridge", it: "Ponte di Introd", fr: "Pont d'Introd" },
+                descs: { en: "3D model and stratigraphic analysis of materials for educational purposes.", it: "Modello 3D e analisi stratigrafica dei materiali per fini didattici e di restauro.", fr: "Modèle 3D et analyse stratigraphique des matériaux pour l'éducation." }
+            },
+            {
+                id: "rieti", icon: "route",
+                titles: { en: "SS 79 Ternana", it: "SS 79 Ternana", fr: "SS 79 Ternana" },
+                descs: { en: "GNSS and Total Station survey of 18km road for barrier rehabilitation.", it: "Rilievo topografico GNSS e Stazione Totale di 18km di strada per riqualificazione.", fr: "Levé topographique GNSS et Station Totale de 18km de route." }
+            },
+            {
+                id: "sasso", icon: "route",
+                titles: { en: "Sasso Marconi", it: "Sasso Marconi", fr: "Sasso Marconi" },
+                descs: { en: "Topographic survey of road and stream for bridge design and deviation project.", it: "Rilievo topografico di strada e torrente per progettazione ponte.", fr: "Levé topographique de route et ruisseau pour la conception d'un pont." }
+            },
+            {
+                id: "liguria", icon: "droplet",
+                titles: { en: "Liguria Pipeline", it: "Metanodotto Liguria", fr: "Gazoduc Ligurie" },
+                descs: { en: "UAV survey for gas pipeline project. 3D models, DEM and contour lines.", it: "Rilievo UAV per progetto metanodotto. Modelli 3D, DEM e curve di livello.", fr: "Levé drone pour projet de gazoduc. Modèles 3D et MNT." }
+            },
+            {
+                id: "arcevia", icon: "mountain",
+                titles: { en: "Arcevia Survey", it: "Rilievo Arcevia", fr: "Levé Arcevia" },
+                descs: { en: "Aerophotogrammetric survey of Monte Croce Guardia. DEM production.", it: "Rilievo aerofotogrammetrico della sommità di Monte Croce Guardia. Produzione DEM.", fr: "Levé aérophotogrammétrique du sommet de Monte Croce Guardia." }
+            }
+        ];
+
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+            renderPortfolio();
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            if (radarChart) {
+                radarChart.data.labels = translations[currentLang]["radar-labels"];
+                radarChart.update();
+            }
+        }
+
+        function renderPortfolio() {
+            const grid = document.getElementById('project-grid');
+            grid.innerHTML = '';
+            projectData.forEach(proj => {
+                const card = document.createElement('article');
+                card.className = "project-card group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all flex flex-col h-full";
+                card.innerHTML = `
+                    <div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-4 text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                        <i data-lucide="${proj.icon}" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-slate-900 mb-1">${proj.titles[currentLang]}</h3>
+                    <p class="text-xs text-slate-500 italic leading-relaxed flex-1">${proj.descs[currentLang]}</p>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function switchView(viewId) {
+            document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('nav-' + viewId).classList.add('active');
+            document.querySelectorAll('.view-section').forEach(section => section.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            if (window.innerWidth < 768) document.getElementById('sidebar').classList.add('-translate-x-full');
+            if(radarChart) radarChart.resize();
+            if(barChart) barChart.resize();
+        }
+
+        let radarChart, barChart;
+        function initCharts() {
+            const ctxRadar = document.getElementById('competencyRadar').getContext('2d');
+            radarChart = new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: translations[currentLang]["radar-labels"],
+                    datasets: [{
+                        data: [90, 70, 95, 75, 75],
+                        backgroundColor: 'rgba(15, 118, 110, 0.1)',
+                        borderColor: '#0f766e',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#d97706'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false }, min: 0, max: 100 } }, plugins: { legend: { display: false } } }
+            });
+
+            const ctxBar = document.getElementById('skillsBarChart').getContext('2d');
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['QGIS', 'ArcGIS Pro', 'Leaflet', 'PostGIS', 'Python', 'Metashape', 'Adobe', 'Office'],
+                    datasets: [{
+                        data: [90, 80, 70, 70, 60, 85, 50, 75],
+                        backgroundColor: '#0f766e',
+                        borderRadius: 8,
+                        barThickness: 24
+                    }]
+                },
+                options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { beginAtZero: true, max: 100 } }, plugins: { legend: { display: false } } }
+            });
+        }
+
+        window.onload = () => {
+            setLanguage(currentLang);
+            initCharts();
+            document.getElementById('mobile-menu-toggle').onclick = () => {
+                document.getElementById('sidebar').classList.toggle('-translate-x-full');
+            };
+        };
+    </script>
+</body>
 </html>
